@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
+#    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/08 02:37:45 by mykman           ###   ########.fr        #
+#    Updated: 2022/05/08 02:46:34 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ endif
 # Compilation
 CC			=	@gcc
 CFLAGS		=	-Wall -Wextra -Werror
-ifeq (detected_OS, Linux)
+ifeq ($(detected_OS), Linux)
 	MLXFLAGS	:=	-lmlx_Linux -lXext -lX11 -lm -lz
-else
-	MLXFLAGS	:=	
+else ifeq ($(detected_OS), Darwin)
+	MLXFLAGS	:=	-lmlx -framework OpenGL -framework AppKit
 endif
 
 # Variables
