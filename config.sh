@@ -15,7 +15,12 @@ then
 		cp -vr ~/.mlx/mlx.h /usr/local/include
 		cp -vr ~/.mlx/man/man3 /usr/local/man/
 	fi
-elif [ $OS == "Darwin" ]
+fi
+
+# Libft installation
+if [ ! -d "Libft" ]
 then
-	echo "You're at school it's already installed"
+	git clone https://github.com/Alienxbe/Libft Libft
+else
+	git -C Libft pull
 fi
