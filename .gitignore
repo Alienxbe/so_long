@@ -54,3 +54,4 @@ dkms.conf
 # Executable name
 so_long
 libft/
+.vscode
