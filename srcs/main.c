@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 01:18:42 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 01:28:29 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_assets(t_data *d)
 {
 	ft_bzero(d->assets, sizeof(t_img) * assets_count);
 	d->assets[grass] = new_asset(d->mlx_ptr, XPM_FOLDER"grass.xpm");
-	d->assets[grassy_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"grassy_grass.xpm");
+	d->assets[grassy_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"test.xpm");
 	d->assets[flower_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"flower_grass.xpm");
 	d->assets[pkmn_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"pkmn_grass.xpm");
 }
