@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 01:28:29 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/20 01:44:32 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	init_assets(t_data *d)
 {
 	ft_bzero(d->assets, sizeof(t_img) * assets_count);
 	d->assets[grass] = new_asset(d->mlx_ptr, XPM_FOLDER"grass.xpm");
-	d->assets[grassy_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"test.xpm");
-	d->assets[flower_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"flower_grass.xpm");
+	d->assets[grassy_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"grassy_grass.xpm");
+	d->assets[flower1_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"flower1_grass.xpm");
 	d->assets[pkmn_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"pkmn_grass.xpm");
+	d->assets[sign] = new_asset(d->mlx_ptr, XPM_FOLDER"sign.xpm");
 }
 
 t_img	new_asset(void *mlx_ptr, char *filename)
@@ -77,6 +78,8 @@ int	main(void)
 	for (int y = 0; y < 3; y++)
 		for (int x = 0; x < 3; x++)
 			set_tile(d, d.assets[pkmn_grass], x + 7, y + 5);
+	set_tile(d, d.assets[grass], 8, 6);
+	set_tile(d, d.assets[sign], 8, 6);
 	mlx_loop(d.mlx_ptr);
 	mlx_destroy_window(d.mlx_ptr, d.mlx_win);
 	for (int i = 0; i < assets_count; i++)

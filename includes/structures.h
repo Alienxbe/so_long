@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 00:54:37 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 01:40:47 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ typedef enum e_assets
 {
 	grass,
 	grassy_grass,
-	flower_grass,
+	flower1_grass,
+	flower2_grass,
 	pkmn_grass,
+	sign,
 	assets_count
 }	t_assets;
 
