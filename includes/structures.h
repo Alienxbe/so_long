@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 00:55:50 by maykman          ###   ########.fr       */
+/*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
+/*   Updated: 2022/05/20 00:54:37 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef STRUCTURES_H
+# define STRUCTURES_H
 
-#include <stdio.h>
+typedef enum e_assets
+{
+	grass,
+	grassy_grass,
+	flower_grass,
+	pkmn_grass,
+	assets_count
+}	t_assets;
 
-# include <math.h>
-# include "mlx.h"
-# include "libft.h"
-# include "structures.h"
+typedef struct	s_game
+{
+	int posx;
+	int posy;
+}	t_game;
 
-# define WIN_WIDTH	750
-# define WIN_HEIGHT	500
-# define WIN_NAME	"so_long"
+typedef struct	s_img
+{
+	void	*img;
+	int		height;
+	int		width;
+}	t_img;
 
-# define ASSETS_FOLDER	"assets/"
-# define XPM_FOLDER		ASSETS_FOLDER"xpm/"
-# define TILE_SIZE		32
+typedef struct	s_data
+{
+	void	*mlx_ptr;
+	void	*mlx_win;
+	t_img	assets[assets_count];
+	t_game	game;
+}	t_data;
 
 #endif
