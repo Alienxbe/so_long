@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
+#    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/13 18:44:50 by maykman          ###   ########.fr        #
+#    Updated: 2022/05/20 07:25:42 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,11 @@ MAKE_MLX		=	@make -s -C ${MLX_FOLDER}
 
 # Files
 INCLUDES		=	-I./includes -I./${LIBFT_FOLDER}/includes -I./${MLX_FOLDER}
-SRCS			=	main.c
+SRCS			=	main.c \
+					assets.c \
+					errors.c \
+					map.c \
+					window.c
 OBJS			=	$(addprefix srcs/, ${SRCS:.c=.o})
 
 # Rules
