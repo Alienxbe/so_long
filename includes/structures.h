@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 20:42:25 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 20:43:25 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef enum e_assets
 	assets_count
 }	t_assets;
 
-typedef struct	s_game
+typedef struct	s_pos
 {
-	int posx;
-	int posy;
-}	t_game;
+	int	x;
+	int	y;
+}	t_pos;
 
 typedef struct	s_img
 {
@@ -37,6 +37,12 @@ typedef struct	s_img
 	int		height;
 	int		width;
 }	t_img;
+
+typedef struct	s_game
+{
+	int posx;
+	int posy;
+}	t_game;
 
 typedef struct	s_data
 {

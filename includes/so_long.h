@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 00:55:50 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 07:26:03 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,24 @@
 # define WIN_NAME	"so_long"
 
 # define ASSETS_FOLDER	"assets/"
-# define XPM_FOLDER		ASSETS_FOLDER"xpm/"
+# define XPM_FOLDER		"assets/xpm/"
 # define TILE_SIZE		32
+
+/*
+** Functions
+*/
+
+// Assets
+t_img	new_asset(void *mlx_ptr, char *filename);
+void	init_assets(t_data *d);
+
+// Window
+void	init_win(t_data *d);
+
+// Map
+void	set_tile(t_data d, t_img img, int x, int y);
+
+// Errors
+void	ft_error(const char *error_msg);
 
 #endif
