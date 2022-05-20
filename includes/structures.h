@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 20:43:25 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 23:21:57 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef enum e_assets
 	pkmn_grass,
 	sign,
 	red,
+	red_head,
 	assets_count
 }	t_assets;
 
@@ -37,6 +38,15 @@ typedef struct	s_img
 	int		height;
 	int		width;
 }	t_img;
+
+typedef struct	s_mlx_img
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+}	t_mlx_img;
 
 typedef struct	s_game
 {

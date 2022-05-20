@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 20:43:25 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 23:42:14 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test_map(t_data d)
 			if (!((x * y) % 15))
 				set_tile(d, d.assets[grassy_grass], x, y);
 			else if (!((x * y) % 20))
-				set_tile(d, d.assets[pkmn_grass],x, y);
+				set_tile(d, d.assets[pkmn_grass], x, y);
 			else if (((x * y) % 15) == 2)
 				set_tile(d, d.assets[flower1_grass], x, y);
 			else if (((x * y) % 20) == 2)
@@ -35,7 +35,8 @@ void	test_map(t_data d)
 			set_tile(d, d.assets[pkmn_grass], x + 7, y + 5);
 	set_tile(d, d.assets[sign], 10, 6);
 	set_tile(d, d.assets[red], 11, 7);
-	set_tile(d, d.assets[sign], 0, 0);
+	set_tile(d, d.assets[red], 11, 8);
+	set_tile(d, d.assets[red_head], 7, 4);
 }
 
 int	main(void)

@@ -3,21 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:29:31 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 18:31:47 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/20 23:40:46 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		**ft_img_to_tab(t_img img)
+static void	copy_subimg(t_mlx_img *sub_mlx_img, t_mlx_img *mlx_img,
+	t_pos size, t_pos p1)
 {
-	
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < size.y)
+	{
+		x = -1;
+		while (++x < size.x)
+			ft_pixel_put(sub_mlx_img, x, y,
+				ft_get_pixel_color(mlx_img, p1.x + x, p1.y + y));
+	}
 }
 
-void	*ft_new_subimage(t_img img, t_pos start, t_pos end)
+void	ft_pixel_put(t_mlx_img *img, int x, int y, unsigned int color)
 {
-	return (NULL);
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
+}
+
+unsigned int	ft_get_pixel_color(t_mlx_img *img, int x, int y)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
+	return (*(unsigned int *)dst);
+}
+
+t_mlx_img	ft_img_to_mlx_img(void	*img)
+{
+	t_mlx_img	mlx_img;
+
+	ft_bzero(&mlx_img, sizeof(t_mlx_img));
+	if (!img)
+		return (mlx_img);
+	mlx_img.img = img;
+	mlx_img.addr = mlx_get_data_addr(mlx_img.img, &mlx_img.bpp,
+			&mlx_img.line_length, &mlx_img.endian);
+	return (mlx_img);
+}
+
+t_img	ft_new_subimage(void *mlx_ptr, t_img img, t_pos p1, t_pos p2)
+{
+	t_mlx_img	mlx_img;
+	t_mlx_img	sub_mlx_img;
+	t_img		sub_img;
+	t_pos		size;
+
+	ft_bzero(&sub_img, sizeof(t_img));
+	size = ft_pos_cmp(p1, p2);
+	if (size.x < 0 || size.y < 0
+		|| p1.x > 0 || p1.y > 0
+		|| p2.x > img.width || p2.y > img.height)
+		return (sub_img);
+	mlx_img = ft_img_to_mlx_img(img.img);
+	sub_mlx_img = ft_img_to_mlx_img(mlx_new_image(mlx_ptr, size.x, size.y));
+	copy_subimg(&sub_mlx_img, &mlx_img, size, p1);
+	sub_img.img = sub_mlx_img.img;
+	sub_img.width = size.x;
+	sub_img.height = size.y;
+	return (sub_img);
 }
