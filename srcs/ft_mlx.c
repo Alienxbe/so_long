@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:29:31 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 23:40:46 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/21 00:14:28 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_img	ft_new_subimage(void *mlx_ptr, t_img img, t_pos p1, t_pos p2)
 	ft_bzero(&sub_img, sizeof(t_img));
 	size = ft_pos_cmp(p1, p2);
 	if (size.x < 0 || size.y < 0
-		|| p1.x > 0 || p1.y > 0
+		|| p1.x < 0 || p1.y < 0
 		|| p2.x > img.width || p2.y > img.height)
 		return (sub_img);
 	mlx_img = ft_img_to_mlx_img(img.img);
