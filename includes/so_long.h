@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 23:24:38 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 23:44:37 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_mlx_img		ft_img_to_mlx_img(void	*img);
 t_img			ft_new_subimage(void *mlx_ptr, t_img img, t_pos p1, t_pos p2);
 
 // Points
-t_pos			ft_new_pos(int x, int y);
+t_pos			ft_set_pos(int x, int y);
 t_pos			ft_pos_cmp(t_pos p1, t_pos p2);
 
 #endif

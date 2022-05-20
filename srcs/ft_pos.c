@@ -6,13 +6,13 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 22:17:57 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 23:24:27 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 23:44:34 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_pos	ft_new_pos(int x, int y)
+t_pos	ft_set_pos(int x, int y)
 {
 	t_pos	pos;
 
