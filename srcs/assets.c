@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assets.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:11:05 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 23:44:25 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/21 00:00:27 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	init_assets(t_data *d)
 	d->assets[sign] = new_asset(d->mlx_ptr, XPM_FOLDER"sign.xpm");
 	d->assets[red] = new_asset(d->mlx_ptr, XPM_FOLDER"red.xpm");
 	pos1 = ft_set_pos(0, 0);
-	pos2 = ft_set_pos(32, 25);
-	d->assets[red_head] = ft_new_subimage(d->mlx_ptr, d->assets[red], pos1, pos2);
+	pos2 = ft_set_pos(64, 64);
+	d->assets[p1_spritesheet] = new_asset(d->mlx_ptr, XPM_FOLDER"sprite_sheets/hilbert_sprite.xpm");
+	d->assets[p1_front] = ft_new_subimage(d->mlx_ptr, d->assets[p1_spritesheet], pos1, pos2);
 }
