@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 02:01:33 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/20 02:10:15 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	init_assets(t_data *d)
 	d->assets[flower2_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"flower2_grass.xpm");
 	d->assets[pkmn_grass] = new_asset(d->mlx_ptr, XPM_FOLDER"pkmn_grass.xpm");
 	d->assets[sign] = new_asset(d->mlx_ptr, XPM_FOLDER"sign.xpm");
+	d->assets[red] = new_asset(d->mlx_ptr, XPM_FOLDER"red.xpm");
 }
 
 t_img	new_asset(void *mlx_ptr, char *filename)
@@ -84,6 +85,7 @@ int	main(void)
 		for (int x = 0; x < 3; x++)
 			set_tile(d, d.assets[pkmn_grass], x + 7, y + 5);
 	set_tile(d, d.assets[sign], 10, 6);
+	set_tile(d, d.assets[red], 5, 5);
 	mlx_loop(d.mlx_ptr);
 	mlx_destroy_window(d.mlx_ptr, d.mlx_win);
 	for (int i = 0; i < assets_count; i++)
