@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/21 00:20:15 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/21 00:41:18 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	test_map(t_data d)
 	set_tile(d, d.assets[sign], 10, 6);
 	set_tile(d, d.assets[red], 11, 7);
 	set_tile(d, d.assets[red], 11, 8);
-	set_tile(d, d.assets[p1_front], 11, 5);
+	set_tile(d, d.assets[p1_front], 10, 8);
+	set_tile(d, d.assets[mid_grass], 8, 6);
 }
 
 int	main(void)
