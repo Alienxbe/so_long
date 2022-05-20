@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 02:10:15 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/20 02:57:11 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,13 @@ t_img	new_asset(void *mlx_ptr, char *filename)
 
 void	set_tile(t_data d, t_img img, int x, int y)
 {
-	x *= 32;
-	y *= 32;
-	if (x > WIN_WIDTH || y > WIN_HEIGHT)
-		return ;
+	x = x * TILE_SIZE + TILE_SIZE - img.width;
+	y = y * TILE_SIZE + TILE_SIZE - img.height;
 	mlx_put_image_to_window(d.mlx_ptr, d.mlx_win, img.img, x, y);
 }
 
-int	main(void)
+void	test_map(t_data d)
 {
-	t_data	d;
-
-	init_win(&d);
-	init_assets(&d);
 	for (int y = 0; y <= WIN_HEIGHT / TILE_SIZE; y++)
 	{
 		for (int x = 0; x <= WIN_WIDTH / TILE_SIZE; x++)
@@ -85,7 +79,16 @@ int	main(void)
 		for (int x = 0; x < 3; x++)
 			set_tile(d, d.assets[pkmn_grass], x + 7, y + 5);
 	set_tile(d, d.assets[sign], 10, 6);
-	set_tile(d, d.assets[red], 5, 5);
+	set_tile(d, d.assets[red], 11, 7);
+}
+
+int	main(void)
+{
+	t_data	d;
+
+	init_win(&d);
+	init_assets(&d);
+	test_map(d);
 	mlx_loop(d.mlx_ptr);
 	mlx_destroy_window(d.mlx_ptr, d.mlx_win);
 	for (int i = 0; i < assets_count; i++)
