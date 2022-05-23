@@ -6,12 +6,16 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/21 00:32:26 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/23 20:56:07 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
+
+/*
+** Enumerations
+*/
 
 typedef enum e_assets
 {
@@ -28,18 +32,19 @@ typedef enum e_assets
 	assets_count
 }	t_assets;
 
-typedef struct	s_pos
+/*
+** Utils structures
+*/
+
+typedef struct	s_point
 {
 	int	x;
 	int	y;
-}	t_pos;
+}	t_point;
 
-typedef struct	s_img
-{
-	void	*img;
-	int		height;
-	int		width;
-}	t_img;
+/*
+** Main structures
+*/
 
 typedef struct	s_mlx_img
 {
@@ -50,18 +55,17 @@ typedef struct	s_mlx_img
 	int		endian;
 }	t_mlx_img;
 
-typedef struct	s_game
+typedef struct	s_img
 {
-	int posx;
-	int posy;
-}	t_game;
+	void	*img;
+	t_point	size;
+}	t_img;
 
 typedef struct	s_data
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
 	t_img	assets[assets_count];
-	t_game	game;
 }	t_data;
 
 #endif

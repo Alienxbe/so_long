@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:12:21 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/21 00:19:59 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/23 20:02:56 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_tile(t_data d, t_img img, int x, int y)
 {
-	x = x * TILE_SIZE + (TILE_SIZE - img.width) / 2;
-	y = y * TILE_SIZE + TILE_SIZE - img.height;
+	x = x * TILE_SIZE + (TILE_SIZE - img.size.x) / 2;
+	y = y * TILE_SIZE + TILE_SIZE - img.size.y;
 	mlx_put_image_to_window(d.mlx_ptr, d.mlx_win, img.img, x, y);
 }
