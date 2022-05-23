@@ -5,11 +5,11 @@
 Here is the list of all the structures and their parameters
 
 * [Main](#main-structures)
-	* [t_data](#tdata)
-	* [t_img](#timg)
-	* [t_mlx_img](#tmlximg)
+	* [t_data](#t_data)
+	* [t_img](#t_img)
+	* [t_mlx_img](#t_mlx_img)
 * [Utils](#utils-structures)
-	* [t_point](#tpoint)
+	* [t_point](#t_point)
 
 ###	 Main structures
 
@@ -23,7 +23,7 @@ I might change `assets` to a new structure type later
 | --- | --- | --- |
 | `void *` | mlx_ptr | main mlx ptr |
 | `void *` | mlx_win | window ptr for the mlx |
-| [`t_img [assets_count]`](#timg) | assets | list of all assets |
+| [`t_img [assets_count]`](#t_img) | assets | list of all assets |
 
 Code definition:
 ```C
@@ -42,7 +42,7 @@ Basic image structure
 | Type | Name | Utility |
 | --- | --- | --- |
 | `void *` | img | ptr to the mlx img object |
-| [`t_point`](#tpoint) | size | define the size of the image |
+| [`t_point`](#t_point) | size | define the size of the image |
 
 Code definition:
 ```C
