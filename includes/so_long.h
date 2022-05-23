@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/20 23:44:37 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/23 23:07:38 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 */
 
 // Assets
-t_img			new_asset(void *mlx_ptr, char *filename);
 void			init_assets(t_data *d);
 
 // Window
@@ -53,10 +52,14 @@ void			ft_error(const char *error_msg);
 void			ft_pixel_put(t_mlx_img *img, int x, int y, unsigned int color);
 unsigned int	ft_get_pixel_color(t_mlx_img *img, int x, int y);
 t_mlx_img		ft_img_to_mlx_img(void	*img);
-t_img			ft_new_subimage(void *mlx_ptr, t_img img, t_pos p1, t_pos p2);
+t_img			ft_xpm_file_to_img(void *mlx_ptr, char *filename);
+t_img			ft_new_subimage(void *mlx_ptr, t_img img, t_area area);
 
 // Points
-t_pos			ft_set_pos(int x, int y);
-t_pos			ft_pos_cmp(t_pos p1, t_pos p2);
+t_point			ft_new_point(int x, int y);
+t_point			ft_pos_cmp(t_point p1, t_point p2);
+
+// Areas
+t_area			ft_new_area(t_point p1, t_point p2);
 
 #endif

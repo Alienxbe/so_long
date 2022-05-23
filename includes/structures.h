@@ -3,42 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 23:58:50 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/23 23:04:48 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-typedef enum e_assets
+# define MAX_PLAYER_FRAME	16
+
+/*
+** Enumerations
+*/
+
+typedef enum e_assets_sheets
+{
+	MAX_ASSETS_SHEET_ID
+}	t_assets_sheets;
+
+typedef enum e_tiles
 {
 	grass,
-	grassy_grass,
-	flower1_grass,
-	flower2_grass,
-	pkmn_grass,
-	sign,
-	red,
-	p1_spritesheet,
-	p1_front,
-	assets_count
-}	t_assets;
+	grass_grassy,
+	grass_flower_red,
+	grass_flower_white,
+	tree_1,
+	tree_2,
+	dirt_up_left,
+	dirt_up,
+	dirt_up_right,
+	road_up_left,
+	road_up,
+	road_up_right,
+	tree_3,
+	tree_4,
+	dirt_left,
+	dirt,
+	dirt_right,
+	road_left,
+	road,
+	road_right,
+	tree_5,
+	tree_6,
+	dirt_down_right,
+	dirt_down,
+	dirt_down_left,
+	road_down_left,
+	road_down,
+	road_down_right,
+	tree_7,
+	tree_8,
+	MAX_TILE_ID
+}	t_tiles;
 
-typedef struct	s_pos
+/*
+** Utils structures
+*/
+
+typedef struct	s_point
 {
 	int	x;
 	int	y;
-}	t_pos;
+}	t_point;
 
-typedef struct	s_img
+typedef struct	s_area
 {
-	void	*img;
-	int		height;
-	int		width;
-}	t_img;
+	t_point	p1;
+	t_point	p2;
+}	t_area;
+
+/*
+** Main structures
+*/
 
 typedef struct	s_mlx_img
 {
@@ -49,18 +88,24 @@ typedef struct	s_mlx_img
 	int		endian;
 }	t_mlx_img;
 
-typedef struct	s_game
+typedef struct	s_img
 {
-	int posx;
-	int posy;
-}	t_game;
+	void	*img;
+	t_point	size;
+}	t_img;
+
+typedef struct	s_assets
+{
+	t_img	assets_sheets[MAX_ASSETS_SHEET_ID];
+	t_img	tiles[MAX_TILE_ID];
+	t_img	player[MAX_PLAYER_FRAME];
+}	t_assets;
 
 typedef struct	s_data
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	t_img	assets[assets_count];
-	t_game	game;
+	void		*mlx_ptr;
+	void		*mlx_win;
+	t_assets	assets;
 }	t_data;
 
 #endif

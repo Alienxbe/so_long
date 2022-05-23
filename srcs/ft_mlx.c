@@ -6,14 +6,14 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:29:31 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/21 00:14:28 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/23 22:26:28 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static void	copy_subimg(t_mlx_img *sub_mlx_img, t_mlx_img *mlx_img,
-	t_pos size, t_pos p1)
+	t_point size, t_point p1)
 {
 	int	x;
 	int	y;
@@ -57,24 +57,24 @@ t_mlx_img	ft_img_to_mlx_img(void	*img)
 	return (mlx_img);
 }
 
-t_img	ft_new_subimage(void *mlx_ptr, t_img img, t_pos p1, t_pos p2)
+t_img	ft_new_subimage(void *mlx_ptr, t_img img, t_area area)
 {
 	t_mlx_img	mlx_img;
 	t_mlx_img	sub_mlx_img;
 	t_img		sub_img;
-	t_pos		size;
+	t_point		size;
 
 	ft_bzero(&sub_img, sizeof(t_img));
-	size = ft_pos_cmp(p1, p2);
+	size = ft_pos_cmp(area.p1, area.p2);
 	if (size.x < 0 || size.y < 0
-		|| p1.x < 0 || p1.y < 0
-		|| p2.x > img.width || p2.y > img.height)
+		|| area.p1.x < 0 || area.p1.y < 0
+		|| area.p2.x > img.size.x || area.p2.y > img.size.y)
 		return (sub_img);
 	mlx_img = ft_img_to_mlx_img(img.img);
 	sub_mlx_img = ft_img_to_mlx_img(mlx_new_image(mlx_ptr, size.x, size.y));
-	copy_subimg(&sub_mlx_img, &mlx_img, size, p1);
+	copy_subimg(&sub_mlx_img, &mlx_img, size, area.p1);
 	sub_img.img = sub_mlx_img.img;
-	sub_img.width = size.x;
-	sub_img.height = size.y;
+	sub_img.size.x = size.x;
+	sub_img.size.y = size.y;
 	return (sub_img);
 }

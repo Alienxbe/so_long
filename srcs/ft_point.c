@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   ft_point.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 06:12:21 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/23 22:39:49 by maykman          ###   ########.fr       */
+/*   Created: 2022/05/20 22:17:57 by maykman           #+#    #+#             */
+/*   Updated: 2022/05/23 22:29:08 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	set_tile(t_data d, t_img img, int x, int y)
+t_point	ft_new_point(int x, int y)
 {
-	x = x * TILE_SIZE + (TILE_SIZE - img.size.x) / 2;
-	y = y * TILE_SIZE + TILE_SIZE - img.size.y;
-	if (img.img)
-		mlx_put_image_to_window(d.mlx_ptr, d.mlx_win, img.img, x, y);
+	t_point	pos;
+
+	pos.x = x;
+	pos.y = y;
+	return (pos);
+}
+
+t_point	ft_pos_cmp(t_point p1, t_point p2)
+{
+	t_point	cmp;
+
+	cmp.x = p2.x - p1.x;
+	cmp.y = p2.y - p1.y;
+	return (cmp);
 }

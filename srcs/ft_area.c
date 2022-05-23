@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pos.c                                           :+:      :+:    :+:   */
+/*   ft_area.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 22:17:57 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/20 23:44:34 by maykman          ###   ########.fr       */
+/*   Created: 2022/05/23 22:28:23 by maykman           #+#    #+#             */
+/*   Updated: 2022/05/23 22:30:55 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <so_long.h>
 
-t_pos	ft_set_pos(int x, int y)
+t_area	ft_new_area(t_point p1, t_point p2)
 {
-	t_pos	pos;
+	t_area	area;
 
-	pos.x = x;
-	pos.y = y;
-	return (pos);
-}
-
-t_pos	ft_pos_cmp(t_pos p1, t_pos p2)
-{
-	t_pos	cmp;
-
-	cmp.x = p2.x - p1.x;
-	cmp.y = p2.y - p1.y;
-	return (cmp);
+	area.p1 = p1;
+	area.p2 = p2;
+	return (area);
 }

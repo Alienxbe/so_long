@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/20 23:21:05 by maykman          ###   ########.fr        #
+#    Updated: 2022/05/23 22:37:06 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRCS			=	main.c \
 					map.c \
 					window.c \
 					ft_mlx.c \
-					ft_pos.c
+					ft_point.c \
+					ft_area.c
 OBJS			=	$(addprefix srcs/, ${SRCS:.c=.o})
 
 # Rules
