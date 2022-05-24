@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:11:05 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/24 04:33:28 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/24 05:46:54 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	init_asset_sheet(void *mlx_ptr, t_assets *asset, char *filename, t_p
 		return ;
 	count = ft_new_point(img.size.x / size.x, img.size.y / size.y);
 	asset->count = count.x * count.y;
-	ft_printf("%d\n", size.y);
 	asset->list = ft_calloc(asset->count, sizeof(t_img));
 	if (asset->list)
 	{

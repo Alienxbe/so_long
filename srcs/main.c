@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/24 05:42:36 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/24 05:49:04 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	init_keycode(t_data *d)
 	}
 	else
 	{
-		d->keycode[key_up] = 65364;
-		d->keycode[key_down] = 65362;
+		d->keycode[key_up] = 65362;
+		d->keycode[key_down] = 65364;
 		d->keycode[key_left] = 65361;
 		d->keycode[key_right] = 65363;
 		d->keycode[key_esc] = 65307;
@@ -47,7 +47,6 @@ void	init_keycode(t_data *d)
 int	key_pressed(int key, t_data *d)
 {
 	ft_printf("Key pressed: %d\n", key);
-	ft_printf("%d\n", d->keycode[key_esc]);
 	if (key == d->keycode[key_esc])
 		exit_game(d);
 	if (key == d->keycode[key_left])
@@ -60,12 +59,12 @@ int	key_pressed(int key, t_data *d)
 		d->pos.x++;
 		test_map(*d, 2);
 	}
-	else if (key == d->keycode[key_up])
+	else if (key == d->keycode[key_down])
 	{
 		d->pos.y++;
 		test_map(*d, 0);
 	}
-	else if (key == d->keycode[key_down])
+	else if (key == d->keycode[key_up])
 	{
 		d->pos.y--;
 		test_map(*d, 3);
@@ -80,10 +79,11 @@ int	main(void)
 	init_win(&d);
 	init_assets(&d);
 	init_keycode(&d);
+	ft_printf("Detected os : %s\n", OS);
 	ft_printf("%d tiles loaded\n", d.tiles.count);
 	d.pos = ft_new_point(1, 1);
 	test_map(d, 0);
-	mlx_key_hook(d.mlx_win, &key_pressed, &d);
+	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_loop(d.mlx_ptr);
 	exit(0);
 }
