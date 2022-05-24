@@ -37,7 +37,7 @@ typedef struct	s_data
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	int			key[MAX_KEY];
+	int		key[MAX_KEY];
 	t_game		game;
 	t_assets	assets;
 }	t_data;
@@ -74,8 +74,8 @@ Code definition:
 typedef struct	s_player
 {
 	t_point	pos;
-	int		rot;
-	int		frame;
+	int	rot;
+	int	frame;
 }	t_player;
 ```
 
@@ -110,7 +110,7 @@ Code definition:
 ```C
 typedef struct	s_asset
 {
-	int		count;
+	int	count;
 	t_img	*list;
 }	t_asset;
 ```
@@ -153,9 +153,9 @@ typedef struct	s_mlx_img
 {
 	void	*img;
 	char	*addr;
-	int		bpp;
-	int		line_length;
-	int		endian;
+	int	bpp;
+	int	line_length;
+	int	endian;
 }	t_mlx_img;
 ```
 
