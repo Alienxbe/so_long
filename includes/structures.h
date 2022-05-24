@@ -3,23 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/24 04:50:12 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/24 05:39:46 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-# define MAX_PLAYER_FRAME	16
+# include "so_long.h"
+
+typedef enum	e_keylist
+{
+	key_up,
+	key_down,
+	key_left,
+	key_right,
+	key_esc,
+	MAX_KEY_CODE
+}	t_keylist;
 
 /*
 ** Enumerations
 */
 
-typedef enum e_tiles
+typedef enum	e_tiles
 {
 	grass,
 	grass_grassy,
@@ -85,7 +95,7 @@ typedef enum e_tiles
 	ledge_n_2,
 	ledge_n_1,
 	ledge_n_0,
-	MAX_TILE_ID = 400
+	MAX_TILE_ID
 }	t_tiles;
 
 /*
@@ -136,6 +146,7 @@ typedef struct	s_data
 	t_assets	tiles;
 	t_assets	player;
 	t_point		pos;
+	int			keycode[MAX_KEY_CODE];
 }	t_data;
 
 #endif

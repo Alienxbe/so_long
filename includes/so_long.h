@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/24 04:48:51 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/24 05:15:42 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # define XPM_TILESET			"assets/xpm/tileset_sheet.xpm"
 # define XPM_PLAYER				"assets/xpm/sprite_sheets/hilda_sprite.xpm"
 # define TILE_SIZE				32
+
+# ifndef OS
+#  define OS	"None"
+# endif
 
 /*
 ** Functions

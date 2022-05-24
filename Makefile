@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
+#    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/23 22:37:06 by maykman          ###   ########.fr        #
+#    Updated: 2022/05/24 05:28:39 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ OBJS			=	$(addprefix srcs/, ${SRCS:.c=.o})
 
 # Rules
 %.o:		%.c
-	${CC} ${CFLAGS} -c ${INCLUDES} $< -o $@
+	${CC} ${CFLAGS} -D OS=\"${detected_OS}\" -c ${INCLUDES} $< -o $@
 
 $(NAME):	${OBJS}
 	${MAKE_LIBFT}
