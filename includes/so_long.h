@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/24 05:15:42 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/24 07:31:41 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define WIN_NAME				"so_long"
 
 # define XPM_TILESET			"assets/xpm/tileset_sheet.xpm"
-# define XPM_PLAYER				"assets/xpm/sprite_sheets/hilda_sprite.xpm"
+# define XPM_PLAYER				"assets/xpm/sprite_sheets/gloria_sprite.xpm"
 # define TILE_SIZE				32
 
 # ifndef OS
@@ -46,7 +46,7 @@ void			init_assets(t_data *d);
 void			init_win(t_data *d);
 
 // Map
-void			set_tile(t_data d, t_assets img, int id, t_point pos);
+void			set_tile(t_data d, t_asset img, int id, t_point pos);
 
 // Errors
 void			ft_error(const char *error_msg);

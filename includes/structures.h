@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/24 05:39:46 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/24 08:08:14 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,11 @@
 
 # include "so_long.h"
 
-typedef enum	e_keylist
-{
-	key_up,
-	key_down,
-	key_left,
-	key_right,
-	key_esc,
-	MAX_KEY_CODE
-}	t_keylist;
-
 /*
 ** Enumerations
 */
 
-typedef enum	e_tiles
+typedef enum e_tiles
 {
 	grass,
 	grass_grassy,
@@ -98,17 +88,27 @@ typedef enum	e_tiles
 	MAX_TILE_ID
 }	t_tiles;
 
+typedef enum e_key_list
+{
+	key_up,
+	key_down,
+	key_left,
+	key_right,
+	key_esc,
+	MAX_KEY
+}	t_key_list;
+
 /*
 ** Utils structures
 */
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int	x;
 	int	y;
 }	t_point;
 
-typedef struct	s_area
+typedef struct s_area
 {
 	t_point	p1;
 	t_point	p2;
@@ -118,7 +118,7 @@ typedef struct	s_area
 ** Main structures
 */
 
-typedef struct	s_mlx_img
+typedef struct s_mlx_img
 {
 	void	*img;
 	char	*addr;
@@ -127,26 +127,43 @@ typedef struct	s_mlx_img
 	int		endian;
 }	t_mlx_img;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	t_point	size;
 }	t_img;
 
-typedef struct	s_assets
+typedef struct s_asset
 {
-	int		count;
 	t_img	*list;
+	int		count;
+}	t_asset;
+
+typedef struct s_assets
+{
+	t_asset	tiles;
+	t_asset	player;
 }	t_assets;
 
-typedef struct	s_data
+typedef struct s_player
+{
+	t_point	pos;
+	int		rot;
+	int		frame;
+}	t_player;
+
+typedef struct s_game
+{
+	t_player	player;
+}	t_game;
+
+typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	t_assets	tiles;
-	t_assets	player;
-	t_point		pos;
-	int			keycode[MAX_KEY_CODE];
+	int			key[MAX_KEY];
+	t_game		game;
+	t_assets	assets;
 }	t_data;
 
 #endif
