@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/23 23:04:48 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/24 04:50:12 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,44 +19,73 @@
 ** Enumerations
 */
 
-typedef enum e_assets_sheets
-{
-	MAX_ASSETS_SHEET_ID
-}	t_assets_sheets;
-
 typedef enum e_tiles
 {
 	grass,
 	grass_grassy,
 	grass_flower_red,
 	grass_flower_white,
+	grass_pkmn,
+	sign,
 	tree_1,
 	tree_2,
-	dirt_up_left,
-	dirt_up,
-	dirt_up_right,
-	road_up_left,
-	road_up,
-	road_up_right,
+	dirt_nw,
+	dirt_n,
+	dirt_ne,
+	road_nw,
+	road_n,
+	road_ne,
 	tree_3,
 	tree_4,
-	dirt_left,
+	dirt_w,
 	dirt,
-	dirt_right,
-	road_left,
+	dirt_e,
+	road_w,
 	road,
-	road_right,
+	road_e,
 	tree_5,
 	tree_6,
-	dirt_down_right,
-	dirt_down,
-	dirt_down_left,
-	road_down_left,
-	road_down,
-	road_down_right,
+	dirt_sw,
+	dirt_s,
+	dirt_se,
+	road_sw,
+	road_s,
+	road_se,
 	tree_7,
 	tree_8,
-	MAX_TILE_ID
+	dirt_cross_nw,
+	dirt_cross_ne,
+	ledge_w_0,
+	ledge_e_2,
+	road_cross_nw,
+	road_cross_ne,
+	tree_9,
+	tree_10,
+	dirt_cross_sw,
+	dirt_cross_se,
+	ledge_w_1,
+	ledge_e_1,
+	road_cross_sw,
+	road_cross_se,
+	tree_11,
+	tree_12,
+	dirt_slope_down_ne,
+	dirt_slope_down_nw,
+	ledge_w_2,
+	ledge_e_0,
+	tree_13,
+	tree_14,
+	tree_15,
+	tree_16,
+	dirt_slope_down_sw,
+	dirt_slope_down_se,
+	ledge_s_0,
+	ledge_s_1,
+	ledge_s_2,
+	ledge_n_2,
+	ledge_n_1,
+	ledge_n_0,
+	MAX_TILE_ID = 400
 }	t_tiles;
 
 /*
@@ -96,16 +125,17 @@ typedef struct	s_img
 
 typedef struct	s_assets
 {
-	t_img	assets_sheets[MAX_ASSETS_SHEET_ID];
-	t_img	tiles[MAX_TILE_ID];
-	t_img	player[MAX_PLAYER_FRAME];
+	int		count;
+	t_img	*list;
 }	t_assets;
 
 typedef struct	s_data
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	t_assets	assets;
+	t_assets	tiles;
+	t_assets	player;
+	t_point		pos;
 }	t_data;
 
 #endif

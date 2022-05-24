@@ -1,5 +1,5 @@
 /* XPM */
-static char * assets_sheets_xpm[] = {
+static char * tileset_sheet_xpm[] = {
 "256 1600 197 2",
 "  	c None",
 ". 	c #1FBA66",

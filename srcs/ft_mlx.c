@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:29:31 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/23 22:26:28 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/24 04:01:35 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ static void	copy_subimg(t_mlx_img *sub_mlx_img, t_mlx_img *mlx_img,
 	{
 		x = -1;
 		while (++x < size.x)
+		{
 			ft_pixel_put(sub_mlx_img, x, y,
 				ft_get_pixel_color(mlx_img, p1.x + x, p1.y + y));
+		}
 	}
 }
 
@@ -72,6 +74,8 @@ t_img	ft_new_subimage(void *mlx_ptr, t_img img, t_area area)
 		return (sub_img);
 	mlx_img = ft_img_to_mlx_img(img.img);
 	sub_mlx_img = ft_img_to_mlx_img(mlx_new_image(mlx_ptr, size.x, size.y));
+	if (!sub_mlx_img.img)
+		return (sub_img);
 	copy_subimg(&sub_mlx_img, &mlx_img, size, area.p1);
 	sub_img.img = sub_mlx_img.img;
 	sub_img.size.x = size.x;
