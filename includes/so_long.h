@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/25 20:39:25 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/26 23:12:41 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdio.h>
 
-# include <math.h>
+# include <time.h>
 # include "mlx.h"
 # include "libft.h"
 # include "structures.h"
@@ -23,6 +23,9 @@
 # define WIN_WIDTH				750
 # define WIN_HEIGHT				500
 # define WIN_NAME				"so_long"
+
+# define FPS_MAX				60
+# define FRAME_PER_ANIMATION	7
 
 # define XPM_TILESET			"assets/xpm/tileset_sheet.xpm"
 # define XPM_PLAYER				"assets/xpm/sprite_sheets/beladonis_sprite.xpm"
@@ -66,6 +69,7 @@ t_img			ft_new_subimage(void *mlx_ptr, t_img img, t_area area);
 // Points
 t_point			ft_new_point(int x, int y);
 t_point			ft_pos_cmp(t_point p1, t_point p2);
+void			ft_print_point(t_point p);
 
 // Areas
 t_area			ft_new_area(int x1, int y1, int x2, int y2);

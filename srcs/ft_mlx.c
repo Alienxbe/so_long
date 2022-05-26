@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:29:31 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/24 04:01:35 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/26 15:29:37 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,17 @@ t_img	ft_new_subimage(void *mlx_ptr, t_img img, t_area area)
 {
 	t_mlx_img	mlx_img;
 	t_mlx_img	sub_mlx_img;
-	t_img		sub_img;
 	t_point		size;
 
-	ft_bzero(&sub_img, sizeof(t_img));
 	size = ft_pos_cmp(area.p1, area.p2);
 	if (size.x < 0 || size.y < 0
 		|| area.p1.x < 0 || area.p1.y < 0
 		|| area.p2.x > img.size.x || area.p2.y > img.size.y)
-		return (sub_img);
+		return ((t_img){0, {0, 0}});
 	mlx_img = ft_img_to_mlx_img(img.img);
 	sub_mlx_img = ft_img_to_mlx_img(mlx_new_image(mlx_ptr, size.x, size.y));
 	if (!sub_mlx_img.img)
-		return (sub_img);
+		return ((t_img){0, {0, 0}});
 	copy_subimg(&sub_mlx_img, &mlx_img, size, area.p1);
-	sub_img.img = sub_mlx_img.img;
-	sub_img.size.x = size.x;
-	sub_img.size.y = size.y;
-	return (sub_img);
+	return ((t_img){sub_mlx_img.img, {size.x, size.y}});
 }

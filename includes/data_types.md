@@ -66,7 +66,7 @@ Structure that contain all the main variables about the player
 | Type | Name | Utility |
 | --- | --- | --- |
 | [`t_point`](#t_point) | pos | position of the player |
-| `int` | rot | rotation of the player (range:`0 -> 3`) |
+| `int` | rot | rotation of the player (range: `0 -> 3`) |
 | `int` | frame | animation frame (range: `0 -> 3`) |
 
 Code definition:

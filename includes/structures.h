@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
+/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/25 00:09:23 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/26 22:57:06 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 
 // Single dimension tab is way easier on malloc
 // But can used as a two-dimensional tab
-typedef int	*t_tab;
+typedef int	*t_layer;
+
+
 
 /*
 ** Enumerations
@@ -94,10 +96,10 @@ typedef enum e_tiles
 
 typedef enum e_key_list
 {
-	key_up,
 	key_down,
 	key_left,
 	key_right,
+	key_up,
 	key_esc,
 	MAX_KEY
 }	t_key_list;
@@ -159,11 +161,13 @@ typedef struct s_player
 typedef struct s_game
 {
 	t_player	player;
+	int			key_active[MAX_KEY];
+	int			fps;
 }	t_game;
 
 typedef struct s_map
 {
-	t_tab	map;
+	t_layer	*layers;
 	t_point	size;
 }	t_map;
 

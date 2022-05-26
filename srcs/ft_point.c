@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 22:17:57 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/23 22:29:08 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/26 15:11:39 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 t_point	ft_new_point(int x, int y)
 {
-	t_point	pos;
-
-	pos.x = x;
-	pos.y = y;
-	return (pos);
+	return ((t_point){x, y});
 }
 
 t_point	ft_pos_cmp(t_point p1, t_point p2)
 {
-	t_point	cmp;
+	return ((t_point){p2.x - p1.x, p2.y - p1.y});
+}
 
-	cmp.x = p2.x - p1.x;
-	cmp.y = p2.y - p1.y;
-	return (cmp);
+void	ft_print_point(t_point p)
+{
+	ft_printf("x: %d\ty: %d\n", p.x, p.y);
 }
