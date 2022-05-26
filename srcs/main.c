@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/24 08:02:00 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/25 20:35:09 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int	test_map(t_data *d)
 	for (int y = 0; y <= WIN_HEIGHT / TILE_SIZE; y++)
 		for (int x = 0; x <= WIN_WIDTH / TILE_SIZE; x++)
 			set_tile(*d, d->assets.tiles, grass, ft_new_point(x, y));
-	for (int i=0; i < 200; i++)
-		set_tile(*d, d->assets.tiles, i, ft_new_point(i % 8, i / 8));
+	// for (int i=0; i < 200; i++)
+	// 	set_tile(*d, d->assets.tiles, i, ft_new_point(i % 8, i / 8));
+	for (int i = 0; i < 16; i++)
+		set_tile(*d, d->assets.tiles, grass_pkmn, ft_new_point(5 + i % 4, 5 + i / 4));
 	set_tile(*d, d->assets.player, d->game.player.frame + d->game.player.rot * 4, d->game.player.pos);
 	return (0);
 }
@@ -86,6 +88,7 @@ int	main(void)
 	init_win(&d);
 	init_assets(&d);
 	init_keycode(&d);
+	parse_map(&d, "maps/map_bonus.ber");
 	test_map(&d);
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_loop(d.mlx_ptr);

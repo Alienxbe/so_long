@@ -1,0 +1,15 @@
+1111111
+1000111
+1000001
+1100001
+1111111
+
+Format can also be:
+
+.2
+01010101
+01000001
+01000001
+01010101
+
+Here the .2 means that there is 2 digits to represent a single id;

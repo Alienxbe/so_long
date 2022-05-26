@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/24 08:08:14 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/25 00:09:23 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define STRUCTURES_H
 
 # include "so_long.h"
+
+// Single dimension tab is way easier on malloc
+// But can used as a two-dimensional tab
+typedef int	*t_tab;
 
 /*
 ** Enumerations
@@ -157,6 +161,12 @@ typedef struct s_game
 	t_player	player;
 }	t_game;
 
+typedef struct s_map
+{
+	t_tab	map;
+	t_point	size;
+}	t_map;
+
 typedef struct s_data
 {
 	void		*mlx_ptr;
@@ -164,6 +174,7 @@ typedef struct s_data
 	int			key[MAX_KEY];
 	t_game		game;
 	t_assets	assets;
+	t_map		map;
 }	t_data;
 
 #endif

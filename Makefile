@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/24 05:28:39 by mykman           ###   ########.fr        #
+#    Updated: 2022/05/24 11:30:31 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRCS			=	main.c \
 					window.c \
 					ft_mlx.c \
 					ft_point.c \
-					ft_area.c
+					ft_area.c \
+					parsing.c
 OBJS			=	$(addprefix srcs/, ${SRCS:.c=.o})
 
 # Rules
