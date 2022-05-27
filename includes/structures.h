@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/26 22:57:06 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/27 08:25:07 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@
 
 // Single dimension tab is way easier on malloc
 // But can used as a two-dimensional tab
-typedef int	*t_layer;
-
-
+typedef int	**t_layer;
 
 /*
 ** Enumerations
 */
+
+typedef enum e_tiles_x
+{
+	player_tile_id,
+	coin_tile_id,
+	exit_tile_id
+}	t_tiles_x;
 
 typedef enum e_tiles
 {
@@ -104,6 +109,13 @@ typedef enum e_key_list
 	MAX_KEY
 }	t_key_list;
 
+typedef enum e_file_extension
+{
+	ext_error = -1,
+	ext_ber,
+	ext_aer
+}	t_file_extension;
+
 /*
 ** Utils structures
 */
@@ -167,15 +179,25 @@ typedef struct s_game
 
 typedef struct s_map
 {
+	int		id_size;
+	int		layer_count;
 	t_layer	*layers;
 	t_point	size;
 }	t_map;
+
+typedef struct s_file
+{
+	const char			*filename;
+	int					fd;
+	t_file_extension	ext;
+}	t_file;
 
 typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
 	int			key[MAX_KEY];
+	t_point		win_size;
 	t_game		game;
 	t_assets	assets;
 	t_map		map;

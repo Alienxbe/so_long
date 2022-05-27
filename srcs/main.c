@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/26 23:12:23 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/27 08:59:40 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,32 @@
 void	draw(t_data *d)
 {
 	mlx_clear_window(d->mlx_ptr, d->mlx_win);
-	for (int y = 0; y <= WIN_HEIGHT / TILE_SIZE; y++)
-		for (int x = 0; x <= WIN_WIDTH / TILE_SIZE; x++)
+	for (int y = 0; y < d->map.size.y; y++)
+		for (int x = 0; x <= d->map.size.x; x++)
 			set_tile(*d, d->assets.tiles, grass, (t_point){x, y});
-	for (int i=0; i < 400; i++)
-		set_tile(*d, d->assets.tiles, i, (t_point){i % 8, i / 8});
-	for (int i = 0; i < 16; i++)
-		set_tile(*d, d->assets.tiles, grass_pkmn, ft_new_point(5 + i % 4, 5 + i / 4));
+	// for (int i=0; i < 200; i++)
+	// 	set_tile(*d, d->assets.tiles, i + 100, (t_point){i % 8, i / 8});
+	// for (int i = 0; i < 16; i++)
+	// 	set_tile(*d, d->assets.tiles, grass_pkmn, ft_new_point(5 + i % 4, 5 + i / 4));
+	for (int y = 0; y < d->map.size.y; y++)
+		for (int x = 0; x < d->map.size.x; x++)
+		{
+			if (d->map.layers[0][y][x] == 1)
+				d->map.layers[0][y][x] = 141;
+			if (d->map.layers[0][y][x] == 2)
+				d->map.layers[0][y][x] = 143;
+			if (d->map.layers[0][y][x] == 5)
+				d->map.layers[0][y][x] = 137;
+			if (d->map.layers[0][y][x] == 6)
+				d->map.layers[0][y][x] = 139;
+			if (d->map.layers[0][y][x] == 7)
+				d->map.layers[0][y][x] = 153;
+			if (d->map.layers[0][y][x] == 8)
+				d->map.layers[0][y][x] = 155;
+			set_tile(*d, d->assets.tiles, d->map.layers[0][y][x], (t_point){x, y});
+		}
+	for (int i = 0; i < 4; i++)
+		set_tile(*d, d->assets.tiles, 146, (t_point){1 + i, 4});
 	// rendering player
 	set_tile(*d, d->assets.player, d->game.player.frame / (FRAME_PER_ANIMATION) + d->game.player.rot * 4, d->game.player.pos);
 }
@@ -105,21 +124,38 @@ int	update(t_data *d)
 		fps = (CLOCKS_PER_SEC / FPS_MAX);
 	}
 	d->game.fps = CLOCKS_PER_SEC / fps;
-	ft_printf("fps: %d\n", d->game.fps);
+	if (SHOW_FPS)
+		ft_printf("fps: %d\n", d->game.fps);
 	update_count++;
 	return (0);
 }
 
-int	main(void)
+static void	print_layer(t_map map)
+{
+	t_layer layer;
+
+	layer = map.layers[0];
+	for (int y = 0; y < map.size.y; y++)
+	{
+		for (int x = 0; x < map.size.x; x++)
+			ft_printf("%d ", layer[y][x]);
+		ft_printf("\n");
+	}
+}
+
+int	main(int argc, char **argv)
 {
 	t_data	d;
 
+	if (argc != 2)
+		ft_error("Wrong argument count");
 	ft_bzero(&d, sizeof(t_data));
+	parse_map(&d, argv[1]);
+	print_layer(d.map);
 	init_win(&d);
 	init_assets(&d);
 	init_keycode(&d);
-	parse_map(&d, "maps/map_bonus.ber");
-	d.game.player.pos = (t_point){5, 5};
+	d.game.player.pos = (t_point){d.map.size.x / 2, d.map.size.y / 2};
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);
 	mlx_loop_hook(d.mlx_ptr, &update, &d);
