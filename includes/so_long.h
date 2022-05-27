@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/26 23:12:41 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/27 09:32:55 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@
 # include "libft.h"
 # include "structures.h"
 
-# define WIN_WIDTH				750
-# define WIN_HEIGHT				500
+#define TEST	ft_printf("TEST ZEBI\n");
+
 # define WIN_NAME				"so_long"
 
+# define SHOW_FPS				1
 # define FPS_MAX				60
 # define FRAME_PER_ANIMATION	7
 
 # define XPM_TILESET			"assets/xpm/tileset_sheet.xpm"
 # define XPM_PLAYER				"assets/xpm/sprite_sheets/beladonis_sprite.xpm"
 # define TILE_SIZE				32
+# define TILES_X_LIST			"PCE"
 
 # ifndef OS
 #  define OS	"None"
