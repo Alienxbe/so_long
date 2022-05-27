@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/27 08:25:07 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:36:18 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef enum e_key_list
 	key_right,
 	key_up,
 	key_esc,
+	key_tab,
 	MAX_KEY
 }	t_key_list;
 
@@ -181,6 +182,7 @@ typedef struct s_map
 {
 	int		id_size;
 	int		layer_count;
+	int		tile_size;
 	t_layer	*layers;
 	t_point	size;
 }	t_map;

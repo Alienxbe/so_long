@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
+#    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/24 11:30:31 by mykman           ###   ########.fr        #
+#    Updated: 2022/05/27 17:33:17 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ endif
 
 # Variables
 NAME			=	so_long
+NAME_BUILDER	=	builder
 LIBFT_FOLDER	=	Libft/
 LIBFT_NAME		=	libft.a
 MAKE_LIBFT		=	@make -s -C ${LIBFT_FOLDER}
@@ -37,25 +38,34 @@ MAKE_MLX		=	@make -s -C ${MLX_FOLDER}
 
 # Files
 INCLUDES		=	-I./includes -I./${LIBFT_FOLDER}/includes -I./${MLX_FOLDER}
-SRCS			=	main.c \
-					assets.c \
+SRCS			=	assets.c \
 					errors.c \
 					map.c \
 					window.c \
 					ft_mlx.c \
 					ft_point.c \
 					ft_area.c \
-					parsing.c
-OBJS			=	$(addprefix srcs/, ${SRCS:.c=.o})
+					parsing.c \
+					events.c \
+					render.c
+SRCS_BUILDER	=	draw.c
+OBJS			=	$(addprefix srcs/solong/, ${SRCS:.c=.o})
+OBJS_BUILDER	=	$(addprefix srcs/builder/, ${SRCS_BUILDER:.c=.o})
 
 # Rules
 %.o:		%.c
 	${CC} ${CFLAGS} -D OS=\"${detected_OS}\" -c ${INCLUDES} $< -o $@
 
-$(NAME):	${OBJS}
+$(NAME):	${OBJS} $(addprefix srcs/solong/, $(addsuffix .c, ${NAME}))
 	${MAKE_LIBFT}
 	${MAKE_MLX}
-	${CC} ${CFLAGS} $^ ${LIBFT_FOLDER}/${LIBFT_NAME} ${MLX_FOLDER}/${MLX_NAME} ${MLXFLAGS} -o $@
+	${CC} ${CFLAGS} ${INCLUDES} $^ ${LIBFT_FOLDER}/${LIBFT_NAME} ${MLX_FOLDER}/${MLX_NAME} ${MLXFLAGS} -o $@
+
+$(NAME_BUILDER):	${OBJS} ${OBJS_BUILDER} $(addprefix srcs/builder/, $(addsuffix .c, ${NAME_BUILDER}))
+	${MAKE_LIBFT}
+	${MAKE_MLX}
+	${CC} ${CFLAGS} ${INCLUDES} $^ ${LIBFT_FOLDER}/${LIBFT_NAME} ${MLX_FOLDER}/${MLX_NAME} ${MLXFLAGS} -o $@
+
 
 all:	$(NAME)
 
@@ -67,7 +77,7 @@ clean:
 fclean:
 	${MAKE_MLX} clean
 	${MAKE_LIBFT} fclean
-	@rm -f ${NAME} ${OBJS}
+	@rm -f ${NAME} ${NAME_BUILDER} ${OBJS}
 
 re:		fclean all
 

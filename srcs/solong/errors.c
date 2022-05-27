@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:13:02 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/24 07:25:03 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/27 12:50:41 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	exit_game(t_data *d)
 			mlx_destroy_image(d->mlx_ptr, d->assets.player.list[i].img);
 	free(d->assets.tiles.list);
 	free(d->assets.player.list);
-	mlx_destroy_window(d->mlx_ptr, d->mlx_win);
+	if (d->mlx_ptr && d->mlx_win)
+		mlx_destroy_window(d->mlx_ptr, d->mlx_win);
 	exit(0);
 }

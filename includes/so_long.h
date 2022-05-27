@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/27 09:32:55 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:30:34 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define FRAME_PER_ANIMATION	7
 
 # define XPM_TILESET			"assets/xpm/tileset_sheet.xpm"
-# define XPM_PLAYER				"assets/xpm/sprite_sheets/beladonis_sprite.xpm"
+# define XPM_PLAYER				"assets/xpm/sprite_sheets/gloria_sprite.xpm"
 # define TILE_SIZE				32
 # define TILES_X_LIST			"PCE"
 
@@ -48,10 +48,19 @@ void			exit_game(t_data *d);
 void			init_assets(t_data *d);
 
 // Window
-void			init_win(t_data *d);
+void			init_win(t_data *d, int width, int height, char *name);
+void			init_keycode(t_data *d);
+
+// Events
+int				key_pressed(int key, t_data *d);
+int				key_released(int key, t_data *d);
+
+// Rendering
+void			draw(t_data *d);
+int				ajust_frame_rate(int animation_time);
 
 // Map
-void			set_tile(t_data d, t_asset img, int id, t_point pos);
+void			set_tile(t_data *d, t_asset img, int id, t_point pos);
 void			parse_map(t_data *d, const char *filename);
 
 // Errors
