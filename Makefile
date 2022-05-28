@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/28 13:11:28 by mykman           ###   ########.fr        #
+#    Updated: 2022/05/28 13:59:12 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,12 @@ SRCS			=	assets.c \
 					render.c \
 					window.c
 SRCS_SOLONG		=	$(addsuffix .c, ${NAME}) \
-					draw.c
+					draw.c \
+					key.c
 SRCS_BUILDER	=	$(addsuffix .c, ${NAME_BUILDER}) \
-					draw.c
+					draw.c \
+					key.c \
+					map.c
 
 OBJS			=	$(addprefix srcs/common/, ${SRCS:.c=.o})
 OBJS_SOLONG		=	$(addprefix srcs/solong/, ${SRCS_SOLONG:.c=.o})

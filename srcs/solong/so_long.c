@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 13:27:10 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 13:57:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,6 @@ static void	print_layer(t_map map)
 	}
 }
 
-static void	add_animation_frame(t_data *d)
-{
-	d->game.player.frame++;
-	if (d->game.player.frame >= 4 * FRAME_PER_ANIMATION)
-		d->game.player.frame = 0;
-}
-
-void	key_actions(t_data *d)
-{
-	int	active_key_count;
-
-	if (d->game.key_active[key_esc])
-		exit_game(d);
-	active_key_count = 0;
-	if (d->game.player.frame == 0 || d->game.player.frame == 2 * FRAME_PER_ANIMATION)
-	{
-		for (int i = 0; i <= key_up; i++)
-		{
-			if (d->game.key_active[i])
-			{
-				active_key_count++;
-				d->game.player.rot = i;
-				add_animation_frame(d);
-				break;
-			}
-		}
-	}
-	else
-		add_animation_frame(d);
-}
-
 int	main(int argc, char **argv) // (filename)
 {
 	t_data	d;
@@ -69,8 +38,6 @@ int	main(int argc, char **argv) // (filename)
 	init_assets(&d);
 	init_keycode(&d);
 	d.game.player.pos = (t_point){1, 1};
-	d.func.draw = &draw;
-	d.func.key_actions = &key_actions;
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);
 	mlx_loop_hook(d.mlx_ptr, &update, &d);

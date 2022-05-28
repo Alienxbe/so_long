@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 13:27:49 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 13:51:57 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int				key_released(int key, t_data *d);
 
 // Rendering
 void			draw(t_data *d);
+void			key_actions(t_data *d);
 int				ajust_frame_rate(int animation_time);
 int				update(t_data *d);
 

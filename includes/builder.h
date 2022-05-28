@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:23:44 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 13:12:28 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 13:57:14 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define BUILDER_H
 
 # include "so_long.h"
+
+t_map	generate_map(char **argv);
 
 #endif
