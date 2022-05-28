@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 13:20:28 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 18:25:29 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/29 00:07:25 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,4 @@ void	draw(t_data *d)
 			for (int x = 0; x < d->map.size.x; x++)
 					set_tile(d, d->assets.tiles, d->map.layers[l][y][x],
 						(t_point){x, y});
-	fps_str = ft_itoa(d->game.fps);
-	if (SHOW_FPS)
-	{
-		if (!fps_str)
-			ft_error("Malloc error");
-		mlx_string_put(d->mlx_ptr, d->mlx_win, 10, 15, 0, fps_str);
-		free(fps_str);
-	}
 }

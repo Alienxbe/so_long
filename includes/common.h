@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 18:26:37 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:09:03 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # endif
 
 // FPS
-# define SHOW_FPS				0
+# define SHOW_FPS				1
 # define FPS_MAX				60
 
 // Files

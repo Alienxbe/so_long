@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 13:52:36 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 18:28:00 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/29 00:05:30 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void	key_actions(t_data *d)
 {
 	if (d->game.key_active[key_esc])
 		exit_game(d);
-	ft_printf("Is menu open : %d\n", detect_key_state(d, key_tab));
+	d->game.ismenu = detect_key_state(d, key_tab);
 }

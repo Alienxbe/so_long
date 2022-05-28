@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 12:51:06 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 12:51:16 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:14:11 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ void	draw(t_data *d)
 	// for (int i = 0; i < 4; i++)
 	// 	set_tile(*d, d->assets.tiles, 146, (t_point){1 + i, 4});
 	// rendering player
-	for (int i = 0; i < 4; i++)
-		set_tile(d, d->assets.player, d->game.player.frame / (FRAME_PER_ANIMATION) + d->game.player.rot * 4, (t_point){d->game.player.pos.x + i, d->game.player.pos.y + i});
+	set_tile(d, d->assets.player, d->game.player.frame / (FRAME_PER_ANIMATION) + d->game.player.rot * 4, (t_point){d->game.player.pos.x, d->game.player.pos.y});
 }

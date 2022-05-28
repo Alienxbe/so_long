@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 13:57:16 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/29 00:06:40 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ typedef struct s_assets
 {
 	t_asset	tiles;
 	t_asset	player;
+	t_img	menubar;
 }	t_assets;
 
 typedef struct s_player
@@ -176,6 +177,7 @@ typedef struct s_game
 	t_player	player;
 	int			key_active[MAX_KEY];
 	int			fps;
+	int			ismenu;
 }	t_game;
 
 typedef struct s_map

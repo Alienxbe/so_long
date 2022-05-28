@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:09:33 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/27 17:40:16 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 19:18:07 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_keycode(t_data *d)
 		d->key[key_left] = 65361;
 		d->key[key_right] = 65363;
 		d->key[key_esc] = 65307;
-		d->key[key_tab] = 65307;
+		d->key[key_tab] = 65289;
 	}
 	else if (!ft_strncmp(OS, "Darwin", ft_strlen(OS)))
 	{
