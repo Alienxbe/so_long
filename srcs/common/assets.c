@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assets.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:11:05 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/27 09:54:50 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 18:12:18 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ static void	init_asset_sheet(void *mlx_ptr, t_asset *asset, char *filename,
 
 void	init_assets(t_data *d)
 {
-	init_asset_sheet(d->mlx_ptr, &d->assets.player, XPM_PLAYER, (t_point){64, 64});
-	init_asset_sheet(d->mlx_ptr, &d->assets.tiles, XPM_TILESET, (t_point){TILE_SIZE, TILE_SIZE});
+	init_asset_sheet(d->mlx_ptr, &d->assets.player, PLAYER_XPM, (t_point){64, 64});
+	init_asset_sheet(d->mlx_ptr, &d->assets.tiles, TILESET_XPM, (t_point){d->map.tile_size, d->map.tile_size});
 }

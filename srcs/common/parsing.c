@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:18:55 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/27 15:31:04 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 18:17:49 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,5 @@ void	parse_map(t_data *d, const char *filename)
 	d->map.id_size = 1;
 	d->map.layer_count = 1;
 	read_map(d, f);
-	d->map.tile_size = 32;
-	d->win_size = (t_point){d->map.size.x * TILE_SIZE, d->map.size.y * TILE_SIZE};
+	d->win_size = (t_point){d->map.size.x * d->map.tile_size, d->map.size.y * d->map.tile_size};
 }

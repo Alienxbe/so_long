@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:57:07 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 13:58:14 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 18:25:51 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	ajust_frame_rate(int animation_time)
 		usleep((CLOCKS_PER_SEC / FPS_MAX) - animation_time);
 		animation_time = (CLOCKS_PER_SEC / FPS_MAX);
 	}
-	if (SHOW_FPS)
-		ft_printf("fps: %d\n", CLOCKS_PER_SEC / animation_time);
 	return (CLOCKS_PER_SEC / animation_time);
 }
 

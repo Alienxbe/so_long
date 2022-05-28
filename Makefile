@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/28 13:59:12 by mykman           ###   ########.fr        #
+#    Updated: 2022/05/28 18:14:16 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,13 @@ INCLUDES		=	-I./includes -I./${LIBFT_FOLDER}/includes -I./${MLX_FOLDER}
 SRCS			=	assets.c \
 					errors.c \
 					events.c \
-					ft_area.c \
-					ft_mlx.c \
-					ft_point.c \
 					map.c \
 					parsing.c \
 					render.c \
 					window.c
+SRCS_UTILS		=	ft_mlx.c \
+					ft_point.c \
+					ft_area.c
 SRCS_SOLONG		=	$(addsuffix .c, ${NAME}) \
 					draw.c \
 					key.c
@@ -57,6 +57,7 @@ SRCS_BUILDER	=	$(addsuffix .c, ${NAME_BUILDER}) \
 					map.c
 
 OBJS			=	$(addprefix srcs/common/, ${SRCS:.c=.o})
+OBJS			+=	$(addprefix srcs/common/utils/, ${SRCS_UTILS:.c=.o})
 OBJS_SOLONG		=	$(addprefix srcs/solong/, ${SRCS_SOLONG:.c=.o})
 OBJS_BUILDER	=	$(addprefix srcs/builder/, ${SRCS_BUILDER:.c=.o})
 

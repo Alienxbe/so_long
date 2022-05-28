@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 13:57:32 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/28 14:21:34 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv) // (filename)
 	if (argc != 2)
 		ft_error("Wrong argument count");
 	ft_bzero(&d, sizeof(t_data));
+	d.map.tile_size = 32;
 	parse_map(&d, argv[1]);
 	print_layer(d.map);
 	init_win(&d, d.map.size.x, d.map.size.y, WIN_NAME);
