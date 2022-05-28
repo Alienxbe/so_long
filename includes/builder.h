@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builder.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:23:44 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/27 17:30:39 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 13:12:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 # define BUILDER_H
 
 # include "so_long.h"
-
-void	draw_builder(t_data *d);
 
 #endif

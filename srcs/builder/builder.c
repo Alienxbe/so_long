@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 12:08:06 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/27 17:36:41 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 13:13:33 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,32 +55,31 @@ static t_map	generate_map(char **argv)
 	return (map);
 }
 
-static int	update(t_data *d)
+void	key_actions(t_data *d)
 {
-	clock_t	animation_time;
-
-	animation_time = clock();
 	if (d->game.key_active[key_esc])
 		exit_game(d);
 	if (d->game.key_active[key_tab])
 		ft_printf("!tab\n");
-	draw_builder(d);
-	d->game.fps = ajust_frame_rate(clock() - animation_time);
-	return (0);
 }
 
 int main(int argc, char **argv) // (width, height, id_size, layer_count, tile_size, filename)
 {
 	t_data	d;
 
-	if (argc != 7)
-		ft_error("Wrong argument count");
 	ft_bzero(&d, sizeof(t_data));
+	if (argc != 7)
+	{
+		ft_printf("Usage: ./builder [Width] [Height] [Id size] [Layer count] [Tile size] [Filename]\n");
+		exit_game(&d);
+	}
 	d.map = generate_map(argv);
 	print_layer(d.map);
 	init_win(&d, d.map.size.x, d.map.size.y, "Map Builder");
 	init_keycode(&d);
 	init_assets(&d);
+	d.func.draw = &draw;
+	d.func.key_actions = &key_actions;
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);
 	mlx_loop_hook(d.mlx_ptr, &update, &d);

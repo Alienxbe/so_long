@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 23:54:20 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/27 17:30:34 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 13:27:49 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 # define WIN_NAME				"so_long"
 
-# define SHOW_FPS				1
+# define SHOW_FPS				0
 # define FPS_MAX				60
 # define FRAME_PER_ANIMATION	7
 
 # define XPM_TILESET			"assets/xpm/tileset_sheet.xpm"
-# define XPM_PLAYER				"assets/xpm/sprite_sheets/gloria_sprite.xpm"
+# define XPM_PLAYER				"assets/xpm/sprite_sheets/lucas_sprite.xpm"
 # define TILE_SIZE				32
 # define TILES_X_LIST			"PCE"
 
@@ -58,6 +58,7 @@ int				key_released(int key, t_data *d);
 // Rendering
 void			draw(t_data *d);
 int				ajust_frame_rate(int animation_time);
+int				update(t_data *d);
 
 // Map
 void			set_tile(t_data *d, t_asset img, int id, t_point pos);

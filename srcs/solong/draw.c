@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 11:57:07 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/27 17:38:05 by maykman          ###   ########.fr       */
+/*   Created: 2022/05/28 12:51:06 by mykman            #+#    #+#             */
+/*   Updated: 2022/05/28 12:51:16 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,4 @@ void	draw(t_data *d)
 	// rendering player
 	for (int i = 0; i < 4; i++)
 		set_tile(d, d->assets.player, d->game.player.frame / (FRAME_PER_ANIMATION) + d->game.player.rot * 4, (t_point){d->game.player.pos.x + i, d->game.player.pos.y + i});
-}
-
-int	ajust_frame_rate(int animation_time)
-{
-	if (animation_time < (CLOCKS_PER_SEC / FPS_MAX))
-	{
-		usleep((CLOCKS_PER_SEC / FPS_MAX) - animation_time);
-		animation_time = (CLOCKS_PER_SEC / FPS_MAX);
-	}
-	if (SHOW_FPS)
-		ft_printf("fps: %d\n", CLOCKS_PER_SEC / animation_time);
-	return (CLOCKS_PER_SEC / animation_time);
 }

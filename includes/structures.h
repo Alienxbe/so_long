@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/27 17:36:18 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/28 12:56:31 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,12 @@ typedef struct s_file
 	t_file_extension	ext;
 }	t_file;
 
+typedef struct s_func
+{
+	void	(*draw)();
+	void	(*key_actions)();
+}	t_func;
+
 typedef struct s_data
 {
 	void		*mlx_ptr;
@@ -203,6 +209,7 @@ typedef struct s_data
 	t_game		game;
 	t_assets	assets;
 	t_map		map;
+	t_func		func;
 }	t_data;
 
 #endif
