@@ -53,5 +53,8 @@ dkms.conf
 
 # Executable name
 so_long
+builder
+
+# Unwanted folders
 Libft/
 .vscode
