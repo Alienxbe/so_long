@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 13:20:28 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/29 00:07:25 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/30 22:51:25 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	draw(t_data *d)
 {
-	char	*fps_str;
-
+	mlx_clear_window(d->mlx_ptr, d->mlx_win);
 	for (int l = 0; l < d->map.layer_count; l++)
 		for (int y = 0; y < d->map.size.y; y++)
 			for (int x = 0; x < d->map.size.x; x++)
