@@ -41,3 +41,47 @@ typedef int	**t_tab;
 	```C
 	typedef int	**t_tab;
 	```
+
+## Collisions
+
+	* Assets id map
+	* Collision map (default and used for .ber files)
+		This map is by default generated like this :
+		* Every 0's are transparent blocks (you can go throught them)
+		* Every other blocks are solid blocks (They are basicly walls)
+	* Collision map (created manually and only for .aer files)
+		* Option 1:
+			Define blocks tile_id manually at the end of the tile map file
+			ex:
+			```
+			5555
+			5015
+			5005
+			5555
+
+			5:	S
+			0:	T
+			1:	S
+			```
+			**IF NOT STATE IS DEFINED IT IS SET TO `S` BY DEFAULT**
+			**format** : `tile_id:(whitespaces)(state)` (You can use as many whitespace as you want)
+			These are the only accepted `states`:
+			* `T`: Transparent
+			* `S`: Solid
+
+		* Option 2:
+			Define state map directly at the end of the tile map file
+			ex:
+			```
+			5555
+			5015
+			5005
+			5555
+
+			SSSS
+			STSS
+			STTS
+			SSSS
+			```
+			The state map has to follow the same dimensions as the tile's one
+			This format is way less usefull because you have to write the map again
