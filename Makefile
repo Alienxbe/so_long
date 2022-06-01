@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/05/28 18:14:16 by mykman           ###   ########.fr        #
+#    Updated: 2022/06/01 21:51:01 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,13 @@ ifeq ($(detected_OS), Linux)
 else ifeq ($(detected_OS), Darwin)
 	MLXFLAGS	:=	-framework OpenGL -framework AppKit
 endif
+
+RED				:=	\033[38;5;9m
+GREEN			:=	\033[38;5;10m
+BLUE			:= 	\033[38;5;14m
+YELLOW			:=	\033[38;5;226m
+RESET			:=	\033[38;5;7m
+PREFIX			=	[${YELLOW}${NAME}${RESET}]\t\t
 
 # Variables
 NAME			=	so_long
@@ -64,6 +71,7 @@ OBJS_BUILDER	=	$(addprefix srcs/builder/, ${SRCS_BUILDER:.c=.o})
 # Rules
 %.o:		%.c
 	${CC} ${CFLAGS} -D OS=\"${detected_OS}\" -c ${INCLUDES} $< -o $@
+	@echo "${PREFIX}Compilation of $<..."
 
 $(NAME):	${OBJS} ${OBJS_SOLONG}
 	${MAKE_LIBFT}

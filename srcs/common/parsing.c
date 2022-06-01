@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:18:55 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 18:17:49 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/01 21:54:58 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 static void	parse_param(t_data *d, t_file f, char *line)
 {
 	if (f.ext != ext_aer)
-		ft_error("Map extension cannot have parameters");
+		ft_error("File type doesn't support parameters");
 	d->map.id_size = ft_atoi(++line);
 	line += ft_strtypelen(line, &ft_isdigit);
 	if (*line == '.')
 		d->map.layer_count = ft_atoi(++line);
+	if (d->map.id_size <= 0 || d->map.layer_count <= 0)
+		ft_error("Map format error");
 }
 
 static int	*parse_line(t_data *d, char *line)
@@ -101,17 +103,19 @@ static void	read_map(t_data *d, t_file f)
 	i = 0;
 	while (i < d->map.layer_count)
 	{
-		if (get_next_line(f.fd, &line) <= 0)
+		if (get_next_line(f.fd, &line) < 0)
 			ft_error("GNL error");
-		if (i == 0)
+		if (i == 0) // On first line
 		{
-			if (line[0] == '.')
+			if (line[0] == '.') // If there is params
 			{
 				parse_param(d, f, line);
 				free(line);
-				if (get_next_line(f.fd, &line) <= 0)
+				if (get_next_line(f.fd, &line) < 0)
 					ft_error("GNL error");
 			}
+			ft_printf("%d | %d\n", d->map.id_size, d->map.layer_count);
+			ft_error("Testing");
 			d->map.layers = (t_layer *)ft_calloc(d->map.layer_count, sizeof(t_layer));
 			if (!d->map.layers)
 				ft_error("Malloc error");
