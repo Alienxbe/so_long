@@ -58,3 +58,4 @@ dkms.conf
 # Unwanted folders
 /Libft
 .vscode
+.DS_Store
