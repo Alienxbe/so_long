@@ -6,12 +6,13 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:18:55 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/01 21:54:58 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/01 22:01:26 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+// Parse parameters on .aer files
 static void	parse_param(t_data *d, t_file f, char *line)
 {
 	if (f.ext != ext_aer)
@@ -24,6 +25,7 @@ static void	parse_param(t_data *d, t_file f, char *line)
 		ft_error("Map format error");
 }
 
+// Parse one line of layer
 static int	*parse_line(t_data *d, char *line)
 {
 	int	*tab;
@@ -47,6 +49,7 @@ static int	*parse_line(t_data *d, char *line)
 	return (tab);
 }
 
+// Copy the linked list of each row into a new malloc'd layer
 static t_layer	copy_layer(t_data *d, t_list **lst)
 {
 	t_layer	layer;
@@ -67,6 +70,7 @@ static t_layer	copy_layer(t_data *d, t_list **lst)
 	return (layer);
 }
 
+// Parse one layer
 static t_layer	parse_layer(t_data *d, t_file f, char *first_line)
 {
 	t_list	*lst;
@@ -94,6 +98,7 @@ static t_layer	parse_layer(t_data *d, t_file f, char *first_line)
 	return (copy_layer(d, &lst));
 }
 
+// Parse all the layers
 static void	read_map(t_data *d, t_file f)
 {
 	char	*line;
@@ -125,6 +130,7 @@ static void	read_map(t_data *d, t_file f)
 	}
 }
 
+// Return the file extension id
 static t_file_extension	get_extension(const char *filename)
 {
 	if (ft_strendwith(filename, ".ber"))
@@ -134,6 +140,7 @@ static t_file_extension	get_extension(const char *filename)
 	return (ext_error);
 }
 
+// Parse the file
 void	parse_map(t_data *d, const char *filename)
 {
 	t_file	f;
