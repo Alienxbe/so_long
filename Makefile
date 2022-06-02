@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/06/01 21:51:01 by mykman           ###   ########.fr        #
+#    Updated: 2022/06/02 18:12:44 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,12 +49,12 @@ SRCS			=	assets.c \
 					errors.c \
 					events.c \
 					map.c \
-					parsing.c \
 					render.c \
 					window.c
 SRCS_UTILS		=	ft_mlx.c \
 					ft_point.c \
 					ft_area.c
+SRCS_PARSING	=	parsing.c
 SRCS_SOLONG		=	$(addsuffix .c, ${NAME}) \
 					draw.c \
 					key.c
@@ -65,6 +65,7 @@ SRCS_BUILDER	=	$(addsuffix .c, ${NAME_BUILDER}) \
 
 OBJS			=	$(addprefix srcs/common/, ${SRCS:.c=.o})
 OBJS			+=	$(addprefix srcs/common/utils/, ${SRCS_UTILS:.c=.o})
+OBJS			+=	$(addprefix srcs/common/parsing/, ${SRCS_PARSING})
 OBJS_SOLONG		=	$(addprefix srcs/solong/, ${SRCS_SOLONG:.c=.o})
 OBJS_BUILDER	=	$(addprefix srcs/builder/, ${SRCS_BUILDER:.c=.o})
 
