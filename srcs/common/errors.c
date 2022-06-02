@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:13:02 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/27 12:50:41 by maykman          ###   ########.fr       */
+/*   Updated: 2022/06/02 21:29:02 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 void	ft_error(const char *error_msg)
 {

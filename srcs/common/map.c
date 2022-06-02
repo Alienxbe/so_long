@@ -6,11 +6,11 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:12:21 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 14:20:12 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/02 21:28:44 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 void	set_tile(t_data *d, t_asset asset, int id, t_point pos)
 {

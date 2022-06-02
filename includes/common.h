@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 19:09:03 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/02 22:36:47 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 // To remove !!
 #include <stdio.h>
-#define TEST	ft_printf("TEST ZEBI\n");
+#define TEST		ft_printf("TEST ZEBI\n")
+#define PRINT_VAR(var, type)	ft_printf("var: `%"type"`\n", var)
 
 /*
 ** Includes
@@ -76,11 +77,18 @@ int				ajust_frame_rate(int animation_time);
 void			draw(t_data *d);
 
 // Map
-void			parse_map(t_data *d, const char *filename);
 void			set_tile(t_data *d, t_asset img, int id, t_point pos);
 
 // Errors
 void			ft_error(const char *error_msg);
+
+/*
+** Parsing functions
+*/
+
+void			parse_map(t_data *d, const char *filename);
+t_map			read_map(t_file f);
+char			*read_params(t_file f, t_map *map);
 
 /*
 ** Utils functions

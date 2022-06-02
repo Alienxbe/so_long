@@ -6,11 +6,11 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:57:07 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/29 00:08:49 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/02 21:28:50 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 int	ajust_frame_rate(int animation_time)
 {

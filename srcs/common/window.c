@@ -6,11 +6,11 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:09:33 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 19:18:07 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/02 21:28:54 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 void	init_win(t_data *d, int width, int height, char *name)
 {

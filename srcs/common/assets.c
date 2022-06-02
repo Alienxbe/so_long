@@ -6,11 +6,11 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:11:05 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/01 17:17:48 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/02 21:29:03 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 t_img	ft_xpm_file_to_img(void *mlx_ptr, char *filename)
 {

@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 11:53:26 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/02 21:29:00 by mykman           ###   ########.fr       */
+/*   Created: 2022/06/02 21:27:56 by mykman            #+#    #+#             */
+/*   Updated: 2022/06/02 22:42:34 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-int	key_pressed(int key, t_data *d)
+static void	init_map(t_map *map)
 {
-	// ft_printf("Key pressed: %d \n", key);
-	for (int i = 0; i < MAX_KEY; i++)
-		if (key == d->key[i])
-			d->game.key_active[i] = 1;
-	return (0);
+	ft_bzero(map, sizeof(t_map));
+	map->id_size = 1;
+	map->layer_count = 1;
 }
 
-int	key_released(int key, t_data *d)
+t_map	read_map(t_file f)
 {
-	for (int i = 0; i < MAX_KEY; i++)
-		if (key == d->key[i])
-			d->game.key_active[i] = 0;
-	return (0);
+	t_map	map;
+	char	*line;
+	
+	init_map(&map);
+	line = read_params(f, &map);
+	PRINT_VAR(map.id_size, "d");
+	PRINT_VAR(map.layer_count, "d");
+	// read_layers();
+	// read_colmap();
+	return (map);
 }
