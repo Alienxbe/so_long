@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/03 09:42:35 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/03 11:55:22 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void			parse_map(t_data *d, const char *filename);
 t_map			read_map(t_file f);
 char			*read_params(t_file f, t_map *map);
 void			read_layers(t_file f, t_map *map, char *line);
-t_layer			read_layer(t_map *map, t_file f, char *line);
+t_layer			read_layer(t_file f,t_map *map, char *line);
 
 /*
 ** Utils functions

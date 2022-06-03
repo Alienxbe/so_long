@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 21:27:56 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/03 10:07:26 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/03 12:01:40 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,21 @@ static void	init_map(t_map *map)
 t_map	read_map(t_file f)
 {
 	t_map	map;
-	t_layer	layer;
 	char	*line;
 	
 	init_map(&map);
 	line = read_params(f, &map); // Always return the first line of the first layer
-	map.size.x = ft_strlen(line) / map.id_size;
-	layer = read_layer(&map, f, line);
-	for (int j = 0; j < map.size.y; j++)
+	read_layers(f, &map, line);
+	for (int i = 0; i < map.layer_count; i++)
 	{
-		
-		PRINT_TAB(layer[j], map.size.x, "d");
+		for (int y = 0; y < map.size.y; y++)
+		{
+			for (int x = 0; x < map.size.x; x++)
+				ft_printf("%3d ", map.layers[i][y][x]);
+			ft_printf("\n");
+		}
+		ft_printf("\n");
 	}
-	// read_layers(f, &map, line);
 	// read_colmap();
 	return (map);
 }

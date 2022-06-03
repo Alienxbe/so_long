@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 04:05:12 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/03 10:02:32 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/03 12:06:53 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ static int	*parse_line(t_map *map, char *line)
 	i = 0;
 	while (line[i])
 	{
-		tab[i / map->id_size] = -1;
+		tab[i / map->id_size] = -1 * (map->layer_count > 1);
 		if (line[i + map->id_size - 1] == 'P')
 			; // Set player pos
 		else if (line[i + map->id_size - 1] == 'C')
 			; // Set coin pos
 		else if (line[i + map->id_size - 1] == 'E')
 			; // Set exit pos
+		else if (line[i + map->id_size - 1] == 'x')
+			tab[i / map->id_size] = NO_TILE; // Do nothing
 		else if ((int)ft_strtypelen(line + i, &ft_isdigit) >= map->id_size)
 			tab[i / map->id_size] = ft_atoi_l(line + i, map->id_size);
 		else
@@ -68,7 +70,7 @@ static t_layer	build_layer(t_map *map, t_list *lst)
 	return (layer);
 }
 
-t_layer	read_layer(t_map *map, t_file f, char *line)
+t_layer	read_layer(t_file f,t_map *map, char *line)
 {
 	t_list	*lst;
 	t_list	*new;
@@ -83,5 +85,6 @@ t_layer	read_layer(t_map *map, t_file f, char *line)
 		if (get_next_line(f.fd, &line) < 0) // Read next line
 			ft_error("GNL error");
 	}
+	free(line);
 	return (build_layer(map, lst));
 }
