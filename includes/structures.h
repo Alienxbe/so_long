@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/03 08:08:21 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/03 13:27:01 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,9 @@ typedef struct s_map
 	int		tile_size;
 	t_layer	*layers;
 	t_point	size;
+	t_point	pos_p;
+	t_point	pos_c;
+	t_point	pos_e;
 }	t_map;
 
 typedef struct s_file
