@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/06/02 22:27:01 by mykman           ###   ########.fr        #
+#    Updated: 2022/06/03 08:45:22 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,9 @@ SRCS_UTILS		=	ft_mlx.c \
 					ft_area.c
 SRCS_PARSING	=	parsing.c \
 					read_map.c \
-					read_params.c
+					read_params.c \
+					read_layer.c \
+					read_layers.c
 SRCS_SOLONG		=	$(addsuffix .c, ${NAME}) \
 					draw.c \
 					key.c

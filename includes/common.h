@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/02 22:36:47 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/03 09:42:35 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 #include <stdio.h>
 #define TEST		ft_printf("TEST ZEBI\n")
 #define PRINT_VAR(var, type)	ft_printf("var: `%"type"`\n", var)
+#define PRINT_TAB(ptr, size, type)\
+{\
+		for (int i = 0; i < size; i++)\
+			ft_printf("tab %d: %"type"\n", i, ptr[i]);\
+}
 
 /*
 ** Includes
@@ -89,6 +94,8 @@ void			ft_error(const char *error_msg);
 void			parse_map(t_data *d, const char *filename);
 t_map			read_map(t_file f);
 char			*read_params(t_file f, t_map *map);
+void			read_layers(t_file f, t_map *map, char *line);
+t_layer			read_layer(t_map *map, t_file f, char *line);
 
 /*
 ** Utils functions

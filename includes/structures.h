@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/29 00:06:40 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/03 08:08:21 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ typedef enum e_tiles
 	ledge_n_2,
 	ledge_n_1,
 	ledge_n_0,
-	MAX_TILE_ID
+	MAX_TILE_ID,
+	NO_TILE = -1
 }	t_tiles;
 
 typedef enum e_key_list
