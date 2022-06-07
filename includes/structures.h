@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/03 13:27:01 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/07 18:05:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 # include "so_long.h"
 
-// Single dimension tab is way easier on malloc
-// But can used as a two-dimensional tab
-typedef int	**t_layer;
+typedef int		**t_layer;
+typedef void	(*t_parse_char)(t_map, int *, int, char *);
 
 /*
 ** Enumerations
@@ -187,6 +186,7 @@ typedef struct s_map
 	int		layer_count;
 	int		tile_size;
 	t_layer	*layers;
+	t_layer	col;
 	t_point	size;
 	t_point	pos_p;
 	t_point	pos_c;

@@ -6,22 +6,29 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 21:27:56 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/03 17:13:33 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/07 09:36:48 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
+static void	print_layer(t_layer layer, int lx, int ly)
+{
+	if (!layer)
+		return ;
+	for (int y = 0; y < ly; y++)
+	{
+		for (int x = 0; x < lx; x++)
+			ft_printf("%3d ",layer[y][x]);
+		ft_printf("\n");
+	}
+}
+
 static void	print_map(t_map map)
 {
 	for (int i = 0; i < map.layer_count; i++)
 	{
-		for (int y = 0; y < map.size.y; y++)
-		{
-			for (int x = 0; x < map.size.x; x++)
-				ft_printf("%3d ", map.layers[i][y][x]);
-			ft_printf("\n");
-		}
+		print_layer(map.layers[i], map.size.x, map.size.y);
 		ft_printf("\n");
 	}
 }
@@ -40,8 +47,10 @@ t_map	read_map(t_file f)
 	
 	init_map(&map);
 	line = read_params(f, &map); // Always return the first line of the first layer
-	read_layers(f, &map, line);
+	line = read_layers(f, &map, line);
+	read_colmap(f, &map, line);
 	print_map(map);
+	print_layer(map.col, map.size.x, map.size.y);
 	// read_colmap();
 	return (map);
 }

@@ -6,13 +6,13 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:04:13 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/03 13:30:25 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/07 09:39:23 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-void	read_layers(t_file f, t_map *map, char *line)
+char	*read_layers(t_file f, t_map *map, char *line)
 {
 	int	i;
 
@@ -27,4 +27,5 @@ void	read_layers(t_file f, t_map *map, char *line)
 		if (get_next_line(f.fd, &line) < 0) // Read the first line of the next layer
 			ft_error("GNL error");
 	}
+	return (line);
 }
