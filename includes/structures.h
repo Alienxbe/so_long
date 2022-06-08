@@ -6,17 +6,16 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/07 18:05:28 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/08 15:55:51 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-# include "so_long.h"
+# include "common.h"
 
 typedef int		**t_layer;
-typedef void	(*t_parse_char)(t_map, int *, int, char *);
 
 /*
 ** Enumerations
@@ -210,5 +209,7 @@ typedef struct s_data
 	t_assets	assets;
 	t_map		map;
 }	t_data;
+
+typedef void	(*t_fparsec)(t_map *, int *, t_point, char *);
 
 #endif

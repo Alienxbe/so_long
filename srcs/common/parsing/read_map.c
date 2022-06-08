@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 21:27:56 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/07 09:36:48 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/08 16:34:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ t_map	read_map(t_file f)
 	read_colmap(f, &map, line);
 	print_map(map);
 	print_layer(map.col, map.size.x, map.size.y);
-	// read_colmap();
+	ft_error("Testing");
 	return (map);
 }

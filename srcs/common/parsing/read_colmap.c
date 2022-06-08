@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:57:57 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/07 11:18:26 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/08 17:25:27 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** 	-> Need to define using layer
 */
 
-t_layer	layer_to_col(t_layer layer, t_point size)
+static t_layer	layer_to_col(t_layer layer, t_point size)
 {
 	t_layer	col;
 	int		y;
@@ -43,20 +43,38 @@ t_layer	layer_to_col(t_layer layer, t_point size)
 	return (col);
 }
 
-t_layer	mapid_to_col(t_map *map)
+static void	parse_char(t_map *map, int *tab, t_point pos, char *line)
 {
-	
+	(void)map;
+	if (line[pos.x] == 'S')
+		tab[pos.x] = 1;
+	else if (line[pos.x] == 'T')
+		tab[pos.x] = 0;
+	else
+		ft_error("Wrong char in map");
 }
 
-t_layer	dicid_to_col(t_map *map)
+static t_layer	mapid_to_col(t_file f, t_map *map, char *line)
 {
-	
+	t_layer	layer;
+
+	map->id_size = 1;
+	layer = read_layer(f, map, line, &parse_char);
+	return (layer);
 }
+
+// t_layer	dicid_to_col(t_map *map)
+// {
+	
+// }
 
 void	read_colmap(t_file f, t_map *map, char *line)
 {
 	if (ft_strncmp(line, "#COL", 5)) // No COL definition
+	{
 		map->col = layer_to_col(map->layers[0], map->size);
+		free(line);
+	}
 	else
 	{
 		free(line);
@@ -65,10 +83,8 @@ void	read_colmap(t_file f, t_map *map, char *line)
 		if (ft_strtypelen(line, &ft_isdigit))
 			ft_printf("ID definition...\n");
 		else
-			ft_printf("Map definition\n");
-		ft_printf("%s\n", line);
+			map->col = mapid_to_col(f, map, line);
 	}
-	free(line);
 	(void)map;
 	(void)f;
 }

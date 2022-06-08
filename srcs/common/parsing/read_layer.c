@@ -5,48 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 04:05:12 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/07 08:40:53 by mykman           ###   ########.fr       */
+/*   Created: 2022/06/07 11:29:09 by mykman            #+#    #+#             */
+/*   Updated: 2022/06/08 17:25:17 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-static void	set_pos(t_point *p, int x, int y)
-{
-	if (p->x || p->y)
-		ft_error("Map format is wrong");
-	p->x = x;
-	p->y = y;
-}
-
-static int	*parse_line(t_map *map, char *line, int y)
+static int	*parse_line(t_map *map, char *line, t_point pos, t_fparsec fpc)
 {
 	int	*tab;
-	int	i;
 
-	if ((int)ft_strlen(line) != map->size.x * map->id_size)
-		ft_error("Map format is wrong");
+	if ((int)ft_strlen(line) / map->id_size != map->size.x)
+		ft_error("Wrong line size");
 	tab = (int *)malloc(sizeof(int) * map->size.x);
 	if (!tab)
 		ft_error("Malloc error");
-	i = 0;
-	while (line[i])
+	while (line[pos.x * map->id_size])
 	{
-		tab[i / map->id_size] = -1 * (map->layer_count > 1);
-		if (line[i + map->id_size - 1] == 'P')
-			set_pos(&map->pos_p, i / map->id_size, y); // Set player pos
-		else if (line[i + map->id_size - 1] == 'C')
-			set_pos(&map->pos_c, i / map->id_size, y); // Set coin pos
-		else if (line[i + map->id_size - 1] == 'E')
-			set_pos(&map->pos_e, i / map->id_size, y); // Set exit pos
-		else if (line[i + map->id_size - 1] == 'x')
-			tab[i / map->id_size] = NO_TILE; // Do nothing
-		else if ((int)ft_strtypelen(line + i, &ft_isdigit) >= map->id_size)
-			tab[i / map->id_size] = ft_atoi_l(line + i, map->id_size);
-		else
-			ft_error("Wrong character in map");
-		i += map->id_size;
+		fpc(map, tab, pos, line);
+		pos.x++;
 	}
 	free(line);
 	return (tab);
@@ -60,9 +38,7 @@ static t_layer	build_layer(t_map *map, t_list *lst, int y)
 
 	if (!map->size.y)
 		map->size.y = y;
-	if (!map->size.y)
-		ft_error("Map format error");
-	else if (map->size.y != ft_lstsize(lst))
+	if (!map->size.y || map->size.y != ft_lstsize(lst))
 		ft_error("Map format error");
 	layer = (t_layer)malloc(sizeof(int *) * ft_lstsize(lst));
 	if (!layer)
@@ -78,7 +54,7 @@ static t_layer	build_layer(t_map *map, t_list *lst, int y)
 	return (layer);
 }
 
-t_layer	read_layer(t_file f,t_map *map, char *line)
+t_layer	read_layer(t_file f, t_map *map, char *line, t_fparsec fpc)
 {
 	t_list	*lst;
 	t_list	*new;
@@ -88,7 +64,7 @@ t_layer	read_layer(t_file f,t_map *map, char *line)
 	y = 0;
 	while (*line)
 	{
-		new = ft_lstnew(parse_line(map, line, y));
+		new = ft_lstnew(parse_line(map, line, (t_point){0, y}, fpc));
 		if (!new)
 			ft_error("Malloc error");
 		ft_lstadd_back(&lst, new);

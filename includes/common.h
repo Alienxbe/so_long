@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/07 09:15:00 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/08 16:08:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 
 // Files
 # define TILESET_XPM			"assets/xpm/tileset_sheet.xpm"
+# define PLAYER_XPM				"assets/xpm/sprite_sheets/lucas_sprite.xpm"
 
 // Map
 # define TILES_X_LIST			"PCE"
@@ -95,7 +96,7 @@ void			parse_map(t_data *d, const char *filename);
 t_map			read_map(t_file f);
 char			*read_params(t_file f, t_map *map);
 char			*read_layers(t_file f, t_map *map, char *line);
-t_layer			read_layer(t_file f,t_map *map, char *line);
+t_layer			read_layer(t_file f, t_map *map, char *line, t_fparsec fpc);
 void			read_colmap(t_file f, t_map *map, char *line);
 
 /*
