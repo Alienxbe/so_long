@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 12:08:06 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/28 13:57:03 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/10 15:09:10 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv) // (width, height, id_size, layer_count, tile_si
 	}
 	d.map = generate_map(argv);
 	print_layer(d.map);
-	init_win(&d, d.map.size.x, d.map.size.y, "Map Builder");
+	init_win(&d, "Map Builder");
 	init_keycode(&d);
 	init_assets(&d);
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);

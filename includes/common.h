@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/08 16:08:32 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/10 14:35:56 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			exit_game(t_data *d);
 void			init_assets(t_data *d);
 
 // Window
-void			init_win(t_data *d, int width, int height, char *name);
+void			init_win(t_data *d, char *name);
 void			init_keycode(t_data *d);
 
 // Events
@@ -97,7 +97,12 @@ t_map			read_map(t_file f);
 char			*read_params(t_file f, t_map *map);
 char			*read_layers(t_file f, t_map *map, char *line);
 t_layer			read_layer(t_file f, t_map *map, char *line, t_fparsec fpc);
+
+// Collision map
 void			read_colmap(t_file f, t_map *map, char *line);
+t_layer			map_to_col(t_map *map, int (*get_value)(t_map *, t_point));
+t_layer			mapid_to_col(t_file f, t_map *map, char *line);
+t_layer			dicid_to_col(t_file f, t_map *map, char *line);
 
 /*
 ** Utils functions

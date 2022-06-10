@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:18:55 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/03 08:46:57 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/10 15:04:22 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,5 @@ void	parse_map(t_data *d, const char *filename)
 	
 	f = init_file(filename);
 	d->map = read_map(f);
-	ft_error("TESTING");
-	// d->win_size = (t_point){d->map.size.x * d->map.tile_size, d->map.size.y * d->map.tile_size};
+	d->win_size = (t_point){d->map.size.x * d->map.tile_size, d->map.size.y * d->map.tile_size};
 }

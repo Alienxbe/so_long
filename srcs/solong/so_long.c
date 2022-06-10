@@ -6,24 +6,24 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/08 15:47:54 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/10 15:05:11 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	print_layer(t_map map)
-{
-	t_layer layer;
+// static void	print_layer(t_map map)
+// {
+// 	t_layer layer;
 
-	layer = map.layers[0];
-	for (int y = 0; y < map.size.y; y++)
-	{
-		for (int x = 0; x < map.size.x; x++)
-			ft_printf("%d ", layer[y][x]);
-		ft_printf("\n");
-	}
-}
+// 	layer = map.layers[0];
+// 	for (int y = 0; y < map.size.y; y++)
+// 	{
+// 		for (int x = 0; x < map.size.x; x++)
+// 			ft_printf("%d ", layer[y][x]);
+// 		ft_printf("\n");
+// 	}
+// }
 
 int	main(int argc, char **argv) // (filename)
 {
@@ -32,10 +32,8 @@ int	main(int argc, char **argv) // (filename)
 	if (argc != 2)
 		ft_error("Wrong argument count");
 	ft_bzero(&d, sizeof(t_data));
-	d.map.tile_size = 32;
 	parse_map(&d, argv[1]);
-	print_layer(d.map);
-	init_win(&d, d.map.size.x, d.map.size.y, WIN_NAME);
+	init_win(&d, WIN_NAME);
 	init_assets(&d);
 	init_keycode(&d);
 	d.game.player.pos = (t_point){1, 1};

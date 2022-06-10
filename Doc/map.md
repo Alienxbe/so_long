@@ -85,10 +85,10 @@ ex:
 5555
 
 #COL
-SSSS
-STSS
-STTS
-SSSS
+1111
+1011
+1001
+1001
 ```
 The state map has to follow the same dimensions as the tile's one
 This format is way less usefull because you have to write the map again
