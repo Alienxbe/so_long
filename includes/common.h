@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 19:09:03 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 12:52:18 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 
 // To remove !!
 #include <stdio.h>
-#define TEST	ft_printf("TEST ZEBI\n");
+#define TEST		ft_printf("TEST ZEBI\n")
+#define PRINT_VAR(var, type)	ft_printf("var: `%"type"`\n", var)
+#define PRINT_TAB(ptr, size, type)\
+{\
+		for (int i = 0; i < size; i++)\
+			ft_printf("tab %d: %"type"\n", i, ptr[i]);\
+}
 
 /*
 ** Includes
@@ -45,6 +51,7 @@
 
 // Files
 # define TILESET_XPM			"assets/xpm/tileset_sheet.xpm"
+# define PLAYER_XPM				"assets/xpm/sprite_sheets/lucas_sprite.xpm"
 
 // Map
 # define TILES_X_LIST			"PCE"
@@ -60,7 +67,7 @@ void			exit_game(t_data *d);
 void			init_assets(t_data *d);
 
 // Window
-void			init_win(t_data *d, int width, int height, char *name);
+void			init_win(t_data *d, char *name);
 void			init_keycode(t_data *d);
 
 // Events
@@ -76,11 +83,25 @@ int				ajust_frame_rate(int animation_time);
 void			draw(t_data *d);
 
 // Map
-void			parse_map(t_data *d, const char *filename);
 void			set_tile(t_data *d, t_asset img, int id, t_point pos);
 
 // Errors
 void			ft_error(const char *error_msg);
+
+/*
+** Parsing functions
+*/
+
+void			parse(t_data *d, const char *filename);
+t_map			read_map(t_file f);
+char			*read_params(t_file f, t_map *map);
+char			*read_layers(t_file f, t_map *map, char *line);
+t_layer			read_layer(t_file f, t_map *map, char *line, t_fparsec fpc);
+
+// Collision map
+void			read_colmap(t_file f, t_map *map, char *line);
+t_layer			map_to_col(t_map *map, int (*get_value)(t_map *, t_point));
+t_layer			mapid_to_col(t_file f, t_map *map, char *line);
 
 /*
 ** Utils functions

@@ -6,11 +6,11 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:11:05 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/01 17:17:48 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/10 15:07:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
 t_img	ft_xpm_file_to_img(void *mlx_ptr, char *filename)
 {
@@ -36,7 +36,6 @@ static void	init_asset_sheet(void *mlx_ptr, t_asset *asset, char *filename,
 	asset->list = ft_calloc(asset->count, sizeof(t_img));
 	if (asset->list)
 	{
-		ft_printf("From `%s` import *\n", filename);
 		id = -1;
 		while (++id < asset->count)
 			asset->list[id] = ft_new_subimage(mlx_ptr, img,
@@ -50,12 +49,10 @@ static void	init_asset_sheet(void *mlx_ptr, t_asset *asset, char *filename,
 	}
 	mlx_destroy_image(mlx_ptr, img.img);
 }
-	char	*fps_str;
 
 
 void	init_assets(t_data *d)
 {
 	init_asset_sheet(d->mlx_ptr, &d->assets.player, PLAYER_XPM, (t_point){64, 64});
 	init_asset_sheet(d->mlx_ptr, &d->assets.tiles, TILESET_XPM, (t_point){d->map.tile_size, d->map.tile_size});
-	
 }

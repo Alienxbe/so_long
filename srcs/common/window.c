@@ -6,19 +6,19 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:09:33 by mykman            #+#    #+#             */
-/*   Updated: 2022/05/28 19:18:07 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:07:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "common.h"
 
-void	init_win(t_data *d, int width, int height, char *name)
+void	init_win(t_data *d, char *name)
 {
+	ft_printf("New window (%d, %d)\n", d->win_size.x, d->win_size.y);
 	d->mlx_ptr = mlx_init();
 	if (!d->mlx_ptr)
 		ft_error("MLX init failed");
-	d->mlx_win = mlx_new_window(d->mlx_ptr, width * d->map.tile_size,
-		height * d->map.tile_size, name);
+	d->mlx_win = mlx_new_window(d->mlx_ptr, d->win_size.x, d->win_size.y, name);
 	if (!d->mlx_win)
 		ft_error("MLX win failed");
 }

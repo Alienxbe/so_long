@@ -6,18 +6,16 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/29 00:06:40 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/10 13:22:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-# include "so_long.h"
+# include "common.h"
 
-// Single dimension tab is way easier on malloc
-// But can used as a two-dimensional tab
-typedef int	**t_layer;
+typedef int		**t_layer;
 
 /*
 ** Enumerations
@@ -96,7 +94,8 @@ typedef enum e_tiles
 	ledge_n_2,
 	ledge_n_1,
 	ledge_n_0,
-	MAX_TILE_ID
+	MAX_TILE_ID,
+	NO_TILE = -1
 }	t_tiles;
 
 typedef enum e_key_list
@@ -186,7 +185,13 @@ typedef struct s_map
 	int		layer_count;
 	int		tile_size;
 	t_layer	*layers;
+	t_layer	col;
+	int		*s_id;
+	int		*t_id;
 	t_point	size;
+	t_point	pos_p;
+	t_point	pos_c;
+	t_point	pos_e;
 }	t_map;
 
 typedef struct s_file
@@ -206,5 +211,7 @@ typedef struct s_data
 	t_assets	assets;
 	t_map		map;
 }	t_data;
+
+typedef void	(*t_fparsec)(t_map *, int *, t_point, char *);
 
 #endif
