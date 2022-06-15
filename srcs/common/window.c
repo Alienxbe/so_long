@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:09:33 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/10 14:35:44 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:07:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_win(t_data *d, char *name)
 {
+	ft_printf("New window (%d, %d)\n", d->win_size.x, d->win_size.y);
 	d->mlx_ptr = mlx_init();
 	if (!d->mlx_ptr)
 		ft_error("MLX init failed");

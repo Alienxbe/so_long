@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 12:51:06 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/14 19:26:24 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:01:05 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	draw(t_data *d)
 {
-	mlx_clear_window(d->mlx_ptr, d->mlx_win);
 	for (int layer = 0; layer < d->map.layer_count; layer++)
 		for (int y = 0; y < d->map.size.y; y++)
 			for (int x = 0; x < d->map.size.x; x++)

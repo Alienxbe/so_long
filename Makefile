@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/06/15 12:52:43 by mykman           ###   ########.fr        #
+#    Updated: 2022/06/15 13:15:13 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,12 +97,12 @@ all:	$(NAME)
 clean:
 	${MAKE_MLX} clean
 	${MAKE_LIBFT} clean
-	@rm -f ${OBJS} ${OBJS_BUILDER} ${MAIN} ${MAIN_BUILDER}
+	@rm -f ${OBJS} ${OBJS_BUILDER} ${OBJS_SOLONG} ${OBJS_BUILDER} ${MAIN} ${MAIN_BUILDER}
 
 fclean:
 	${MAKE_MLX} clean
 	${MAKE_LIBFT} fclean
-	@rm -f ${NAME} ${NAME_BUILDER} ${OBJS} ${OBJS_BUILDER} ${MAIN} ${MAIN_BUILDER}
+	@rm -f ${NAME} ${NAME_BUILDER} ${OBJS} ${OBJS_SOLONG} ${OBJS_BUILDER} ${MAIN} ${MAIN_BUILDER}
 
 re:		fclean all
 
