@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/06/10 13:31:19 by mykman           ###   ########.fr        #
+#    Updated: 2022/06/14 19:09:37 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ endif
 
 # Compilation
 CC				=	@gcc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address
 ifeq ($(detected_OS), Linux)
 	MLXFLAGS	:=	-lXext -lX11 -lm -lz
 else ifeq ($(detected_OS), Darwin)

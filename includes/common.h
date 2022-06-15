@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/10 14:35:56 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 03:25:43 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void			ft_error(const char *error_msg);
 ** Parsing functions
 */
 
-void			parse_map(t_data *d, const char *filename);
+void			parse(t_data *d, const char *filename);
 t_map			read_map(t_file f);
 char			*read_params(t_file f, t_map *map);
 char			*read_layers(t_file f, t_map *map, char *line);

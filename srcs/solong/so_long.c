@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/10 15:05:11 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 03:31:50 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ int	main(int argc, char **argv) // (filename)
 	if (argc != 2)
 		ft_error("Wrong argument count");
 	ft_bzero(&d, sizeof(t_data));
-	parse_map(&d, argv[1]);
+	parse(&d, argv[1]);
 	init_win(&d, WIN_NAME);
 	init_assets(&d);
 	init_keycode(&d);
-	d.game.player.pos = (t_point){1, 1};
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);
 	mlx_loop_hook(d.mlx_ptr, &update, &d);
