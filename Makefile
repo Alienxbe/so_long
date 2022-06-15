@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/06/14 19:09:37 by mykman           ###   ########.fr        #
+#    Updated: 2022/06/15 12:52:43 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,6 @@ SRCS_PARSING	=	parsing.c \
 					read_layer.c \
 					read_layers.c \
 					read_colmap.c \
-					col_dicid.c \
 					col_layer.c \
 					col_mapid.c
 SRCS_SOLONG		=	$(addsuffix .c, ${NAME}) \

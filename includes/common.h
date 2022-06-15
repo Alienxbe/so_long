@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/15 03:25:43 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 12:52:18 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ t_layer			read_layer(t_file f, t_map *map, char *line, t_fparsec fpc);
 void			read_colmap(t_file f, t_map *map, char *line);
 t_layer			map_to_col(t_map *map, int (*get_value)(t_map *, t_point));
 t_layer			mapid_to_col(t_file f, t_map *map, char *line);
-t_layer			dicid_to_col(t_file f, t_map *map, char *line);
 
 /*
 ** Utils functions

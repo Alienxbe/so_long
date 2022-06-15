@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:57:57 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/10 13:59:01 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 12:53:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	read_colmap(t_file f, t_map *map, char *line)
 		free(line);
 		if (get_next_line(f.fd, &line) < 0)
 			ft_error("GNL error");
-		if (ft_strchr(line, ':'))
-			map->col = dicid_to_col(f, map, line);
-		else
-			map->col = mapid_to_col(f, map, line);
+		map->col = mapid_to_col(f, map, line);
 	}
 }
