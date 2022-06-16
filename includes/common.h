@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/15 12:52:18 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/16 19:17:26 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # include "libft.h"
 // Typedef, structure and unions for this project
 # include "structures.h"
+// Entity class (Not real a class)
+# include "entity.h"
 
 /*
 ** Define constants

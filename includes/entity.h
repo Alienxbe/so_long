@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_entity.c                                        :+:      :+:    :+:   */
+/*   entity.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 17:19:15 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/16 19:54:40 by mykman           ###   ########.fr       */
+/*   Created: 2022/06/16 19:15:38 by mykman            #+#    #+#             */
+/*   Updated: 2022/06/16 19:27:21 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#ifndef ENTITY_H
+# define ENTITY_H
 
-t_entity	*alloc_entity(t_entity orig)
+# include "so_long.h"
+
+typedef struct s_entity
 {
-	t_entity	*cpy;
+	t_point	pos;
+	char	*name;
+	int		rot;
+	int		frame;
+	int		inmove;
+	int		id;
+}	t_entity;
 
-	cpy = (t_entity *)malloc(sizeof(t_entity));
-	if (cpy)
-		*cpy = orig;
-	return (cpy);
-}
+t_entity	*alloc_entity(t_entity orig);
 
-// void		add_entity(t_list **lst, t_entity *entity)
-// {
-	
-// }
+#endif
