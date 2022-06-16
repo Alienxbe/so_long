@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/10 13:22:28 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:17:15 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,16 @@ typedef struct s_player
 	int		rot;
 	int		frame;
 }	t_player;
+
+typedef struct s_entity
+{
+	t_point	pos;
+	char	*name;
+	int		rot;
+	int		frame;
+	int		inmove;
+	int		id;
+}	t_entity;
 
 typedef struct s_game
 {
