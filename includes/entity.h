@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 19:15:38 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/16 19:27:21 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/19 03:46:15 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_entity
 	int		id;
 }	t_entity;
 
-t_entity	*alloc_entity(t_entity orig);
+int			new_entity(t_list **entities);
+t_entity	*get_entity(t_list *entities, int id);
 
 #endif

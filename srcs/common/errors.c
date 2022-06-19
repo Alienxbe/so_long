@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:13:02 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/10 15:08:18 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/19 04:02:02 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void	exit_game(t_data *d)
 			mlx_destroy_image(d->mlx_ptr, d->assets.player.list[i].img);
 	free(d->assets.tiles.list);
 	free(d->assets.player.list);
+	ft_lstclear(&d->entities, &free);
 	if (d->mlx_ptr && d->mlx_win)
 		mlx_destroy_window(d->mlx_ptr, d->mlx_win);
+	ft_printf("Everything was freed without issues\n");
 	exit(0);
 }

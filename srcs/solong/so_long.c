@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/16 19:28:58 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/19 03:59:58 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 int	main(int argc, char **argv) // (filename)
 {
 	t_data	d;
+	int		ent[10];
 
 	if (argc != 2)
 		ft_error("Wrong argument count");
@@ -37,14 +38,15 @@ int	main(int argc, char **argv) // (filename)
 	init_assets(&d);
 	init_keycode(&d);
 
-	ft_lstadd_back(&d.entities, ft_lstnew(alloc_entity((t_entity){
-		(t_point){0, 0},
-		"Player",
-		0,
-		0,
-		0,
-		0
-	})));
+	ent[0] = new_entity(&d.entities);
+	ent[1] = new_entity(&d.entities);
+	ent[2] = new_entity(&d.entities);
+
+	get_entity(d.entities, ent[0])->name = "Player";
+	get_entity(d.entities, ent[1])->name = "Zez";
+	get_entity(d.entities, ent[2])->name = "arbre";
+
+	ft_printf("player id : %p\n", get_entity(d.entities, 5));
 
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);
