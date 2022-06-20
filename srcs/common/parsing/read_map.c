@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 21:27:56 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/15 03:28:22 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/20 18:01:52 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,25 @@ static void	print_map(t_map map)
 	}
 }
 
-static void	init_map(t_map *map)
+static void	init_map(t_map *map, t_list **entities)
 {
 	ft_bzero(map, sizeof(t_map));
 	map->id_size = 1;
 	map->layer_count = 1;
+	map->entities = entities;
 }
 
-t_map	read_map(t_file f)
+t_map	read_map(t_file f, t_list **entities)
 {
 	t_map	map;
 	char	*line;
 	
-	init_map(&map);
+	init_map(&map, entities);
 	line = read_params(f, &map); // Always return the first line of the first layer
 	line = read_layers(f, &map, line);
 	read_colmap(f, &map, line);
+	if (entity_count_type(*map.entities, entity_player) != 1)
+		ft_error("Wrong player count");
 	print_map(map);
 	print_layer(map.col, map.size);
 	map.tile_size = 32;

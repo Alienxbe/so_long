@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:44:40 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/19 03:59:58 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/20 17:17:21 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@
 // 	}
 // }
 
+static void	print_types(void *e)
+{
+	if (!e)
+		return ;
+	ft_printf("x: %d\ty: %d\n", ((t_entity *)e)->pos.x, ((t_entity *)e)->pos.y);
+}
+
 int	main(int argc, char **argv) // (filename)
 {
 	t_data	d;
-	int		ent[10];
 
 	if (argc != 2)
 		ft_error("Wrong argument count");
@@ -38,15 +44,10 @@ int	main(int argc, char **argv) // (filename)
 	init_assets(&d);
 	init_keycode(&d);
 
-	ent[0] = new_entity(&d.entities);
-	ent[1] = new_entity(&d.entities);
-	ent[2] = new_entity(&d.entities);
-
-	get_entity(d.entities, ent[0])->name = "Player";
-	get_entity(d.entities, ent[1])->name = "Zez";
-	get_entity(d.entities, ent[2])->name = "arbre";
-
-	ft_printf("player id : %p\n", get_entity(d.entities, 5));
+	ft_printf("entity list size: %d\n", ft_lstsize(d.entities));
+	ft_printf("type: %d\n", ((t_entity *)d.entities->content)->type);
+	ft_printf("player: %d\n", entity_get_type(d.entities, entity_player)->type);
+	ft_lstiter(d.entities, &print_types);
 
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);

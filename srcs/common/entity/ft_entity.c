@@ -6,15 +6,14 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:19:15 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/19 03:59:48 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/20 18:02:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-int	new_entity(t_list **entities)
+t_entity	*entity_new(t_list **entities, t_entity_type type)
 {
-	static int	id_count;
 	t_entity	*entity;
 	t_list		*new;
 
@@ -23,25 +22,35 @@ int	new_entity(t_list **entities)
 	if (!new || !entity)
 	{
 		free(entity);
-		return (-1);
+		free(new);
+		return (NULL);
 	}
-	entity->id = id_count;
+	entity->type = type;
 	ft_lstadd_back(entities, new);
-	return (id_count++);
+	return (entity);
 }
 
-t_entity	*get_entity(t_list *entities, int id)
+t_entity	*entity_get_type(t_list *entities, t_entity_type type)
 {
-	while (entities && ((t_entity *)entities->content)->id != id)
+	while (entities)
 	{
-		ft_printf("%d\n", id);
+		if (((t_entity *)entities->content)->type == type)
+			return ((t_entity *)entities->content);
 		entities = entities->next;
 	}
-	ft_printf("Exit loop\n");
-	if (!entities)
-		return (NULL);
-	return ((t_entity *)entities->content);
+	return (NULL);
 }
 
+size_t	entity_count_type(t_list *entities, t_entity_type type)
+{
+	size_t	count;
 
-
+	count = 0;
+	while (entities)
+	{
+		if (((t_entity *)entities->content)->type == type)
+			count++;
+		entities = entities->next;
+	}
+	return (count);
+}

@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/16 19:17:26 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/20 18:04:35 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int				ajust_frame_rate(int animation_time);
 void			draw(t_data *d);
 
 // Map
-void			set_tile(t_data *d, t_asset img, int id, t_point pos);
+void			set_tile(t_data *d, t_asset asset, int id, t_point pos);
 
 // Errors
 void			ft_error(const char *error_msg);
@@ -95,7 +95,7 @@ void			ft_error(const char *error_msg);
 */
 
 void			parse(t_data *d, const char *filename);
-t_map			read_map(t_file f);
+t_map			read_map(t_file f, t_list **entities);
 char			*read_params(t_file f, t_map *map);
 char			*read_layers(t_file f, t_map *map, char *line);
 t_layer			read_layer(t_file f, t_map *map, char *line, t_fparsec fpc);

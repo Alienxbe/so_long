@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/16 19:25:42 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/20 18:04:21 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ typedef struct s_asset
 {
 	t_img	*list;
 	int		count;
-}	t_asset;
+}	t_asset;	
 
 typedef struct s_assets
 {
@@ -189,9 +189,7 @@ typedef struct s_map
 	int		*s_id;
 	int		*t_id;
 	t_point	size;
-	t_point	pos_p;
-	t_point	pos_c;
-	t_point	pos_e;
+	t_list	**entities;
 }	t_map;
 
 typedef struct s_file
