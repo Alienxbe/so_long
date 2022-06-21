@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:49:32 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/20 18:04:35 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/21 16:22:37 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 */
 
 // Game
-void			exit_game(t_data *d);
+int			exit_game(t_data *d);
 
 // Assets
 void			init_assets(t_data *d);

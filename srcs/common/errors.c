@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:13:02 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/20 16:13:29 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/21 16:22:11 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_layer(t_layer layer, t_point size)
 	free(layer);
 }
 
-void	exit_game(t_data *d)
+int	exit_game(t_data *d)
 {
 	int	i;
 

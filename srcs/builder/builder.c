@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 12:08:06 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/15 13:11:22 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/21 16:24:15 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int main(int argc, char **argv) // (width, height, id_size, layer_count, tile_si
 	init_assets(&d);
 	mlx_hook(d.mlx_win, 2, 1L << 0, &key_pressed, &d);
 	mlx_hook(d.mlx_win, 3, 1L << 1, &key_released, &d);
+	mlx_hook(d.mlx_win, 17, 0, &exit_game, &d);
 	mlx_loop_hook(d.mlx_ptr, &update, &d);
 	mlx_loop(d.mlx_ptr);
 	exit_game(&d);

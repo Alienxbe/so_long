@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:12:21 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/14 19:27:33 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/21 15:50:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_tile(t_data *d, t_asset asset, int id, t_point pos)
 {
-	if (id == NO_TILE || id >= asset.count || !asset.list[id].img)
+	if (id == NO_TILE || id >= asset.count || !asset.list || !asset.list[id].img)
 		return ;
 	pos.x = pos.x * d->map.tile_size + (d->map.tile_size - asset.list[id].size.x) / 2;
 	pos.y = pos.y * d->map.tile_size + d->map.tile_size - asset.list[id].size.y;

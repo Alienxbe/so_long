@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:11:05 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/20 18:02:52 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/21 16:23:45 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static void	init_asset_sheet(void *mlx_ptr, t_asset *asset, char *filename,
 void	init_assets(t_data *d)
 {
 	ft_printf("Assets init\n");
-	init_asset_sheet(d->mlx_ptr,
-		&entity_get_type(d->entities, entity_player)->sprites, PLAYER_XPM, (t_point){64, 64});
+	if (entity_get_type(d->entities, entity_player))
+		init_asset_sheet(d->mlx_ptr,
+			&entity_get_type(d->entities, entity_player)->sprites, PLAYER_XPM, (t_point){64, 64});
 	init_asset_sheet(d->mlx_ptr, &d->assets.tiles, TILESET_XPM, (t_point){d->map.tile_size, d->map.tile_size});
 }

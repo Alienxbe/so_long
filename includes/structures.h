@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/20 18:04:21 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/21 16:40:53 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ typedef int		**t_layer;
 /*
 ** Enumerations
 */
+
+typedef enum e_event {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+}	t_event;
 
 typedef enum e_tiles_x
 {
@@ -155,7 +165,7 @@ typedef struct s_asset
 {
 	t_img	*list;
 	int		count;
-}	t_asset;	
+}	t_asset;
 
 typedef struct s_assets
 {
