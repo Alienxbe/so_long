@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/08 00:02:10 by mykman            #+#    #+#              #
-#    Updated: 2022/06/16 19:30:22 by mykman           ###   ########.fr        #
+#    Updated: 2022/07/04 14:55:12 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,7 @@ SRCS			=	assets.c \
 					map.c \
 					render.c \
 					window.c
-SRCS_UTILS		=	ft_mlx.c \
-					ft_point.c \
+SRCS_UTILS		=	ft_point.c \
 					ft_area.c
 SRCS_PARSING	=	parsing.c \
 					read_map.c \
@@ -63,6 +62,8 @@ SRCS_PARSING	=	parsing.c \
 					col_layer.c \
 					col_mapid.c
 SRCS_ENTITY		=	ft_entity.c
+SRCS_FTMLX		=	ft_mlx.c \
+					ft_pixel_put.c
 SRCS_SOLONG		=	$(addsuffix .c, ${NAME}) \
 					draw.c \
 					key.c
@@ -75,6 +76,7 @@ OBJS			=	$(addprefix srcs/common/, ${SRCS:.c=.o})
 OBJS			+=	$(addprefix srcs/common/utils/, ${SRCS_UTILS:.c=.o})
 OBJS			+=	$(addprefix srcs/common/parsing/, ${SRCS_PARSING:.c=.o})
 OBJS			+=	$(addprefix srcs/common/entity/, ${SRCS_ENTITY:.c=.o})
+OBJS			+=	$(addprefix srcs/common/ft_mlx/, ${SRCS_FTMLX:.c=.o})
 OBJS_SOLONG		=	$(addprefix srcs/solong/, ${SRCS_SOLONG:.c=.o})
 OBJS_BUILDER	=	$(addprefix srcs/builder/, ${SRCS_BUILDER:.c=.o})
 

@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:29:31 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/10 14:56:25 by mykman           ###   ########.fr       */
+/*   Updated: 2022/07/04 14:54:26 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,6 @@ static void	copy_subimg(t_mlx_img *sub_mlx_img, t_mlx_img *mlx_img,
 				ft_get_pixel_color(mlx_img, p1.x + x, p1.y + y));
 		}
 	}
-}
-
-void	ft_pixel_put(t_mlx_img *img, int x, int y, unsigned int color)
-{
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
 }
 
 unsigned int	ft_get_pixel_color(t_mlx_img *img, int x, int y)

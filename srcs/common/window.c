@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 06:09:33 by mykman            #+#    #+#             */
-/*   Updated: 2022/06/15 13:07:24 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/22 19:55:00 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ void	init_win(t_data *d, char *name)
 	d->mlx_win = mlx_new_window(d->mlx_ptr, d->win_size.x, d->win_size.y, name);
 	if (!d->mlx_win)
 		ft_error("MLX win failed");
+	d->win_img.img = mlx_new_image(d->mlx_ptr, d->win_size.x, d->win_size.y);
+	d->win_img.size = d->win_size;
+	if (!d->win_img.img)
+		ft_error("Window image failed");
 }
 
 void	init_keycode(t_data *d)

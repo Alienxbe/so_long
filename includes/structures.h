@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:34:42 by maykman           #+#    #+#             */
-/*   Updated: 2022/06/21 20:51:25 by mykman           ###   ########.fr       */
+/*   Updated: 2022/06/22 19:43:39 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,7 @@ typedef struct s_data
 	void		*mlx_ptr;
 	void		*mlx_win;
 	int			key[MAX_KEY];
+	t_img		win_img;
 	t_point		win_size;
 	t_game		game;
 	t_list		*entities;
